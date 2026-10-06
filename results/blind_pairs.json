@@ -1,0 +1,206 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "style": "behavior",
+  "pairs": [
+    {
+      "clip": "dia22_utt8",
+      "wav_path": "data/wav/test/dia22_utt8.wav",
+      "context": "Chandler: Well, y'know, you and me, it had to end sometime.\nMonica: Why, exactly?",
+      "transcript": "Because of the weekend, we had a fight.",
+      "gold": "sadness",
+      "predicted": "neutral",
+      "with_emotion": "Got that. It sounds like some good times led to an argument.",
+      "without_emotion": "It sounds like your relationship has faced some challenges recently. How have you both been coping with that?"
+    },
+    {
+      "clip": "dia183_utt7",
+      "wav_path": "data/wav/test/dia183_utt7.wav",
+      "context": "Joey: Okay?\nJoey: I'm an actor. I'm kinda getting my picture up there on the wall.",
+      "transcript": "Y'know, there are two people who could put your picture up there.",
+      "gold": "neutral",
+      "predicted": "neutral",
+      "with_emotion": "Oh, that sounds exciting! Who are these two people?",
+      "without_emotion": "There are indeed two people who could handle that task\u2014yourself or someone else. Let me know if you need any assistance with it."
+    },
+    {
+      "clip": "dia47_utt6",
+      "wav_path": "data/wav/test/dia47_utt6.wav",
+      "context": "Joey: \"Can't, its not there.\"\nChandler: Look, I'm just gonna be across the hall, we can still do all the same stuff.",
+      "transcript": "Yeah but we won't be able to like get up in the middle of the night and have those long talks about our feelings and the future.",
+      "gold": "sadness",
+      "predicted": "neutral",
+      "with_emotion": "Got it, sounds like you both need some space. Let's plan something fun another time.",
+      "without_emotion": "It sounds like you're looking forward to spending time together, even though it might not include late-night chats. That's great too!"
+    },
+    {
+      "clip": "dia202_utt5",
+      "wav_path": "data/wav/test/dia202_utt5.wav",
+      "context": "Erin: Hey Joey!\nJoey: Erin! Still here!",
+      "transcript": "Yeah, we ended up spending the day together and had such a great time!",
+      "gold": "joy",
+      "predicted": "joy",
+      "with_emotion": "Sounds like an amazing day! What did you guys end up doing?",
+      "without_emotion": "Sounds like your day was wonderful! What did you guys end up doing?"
+    },
+    {
+      "clip": "dia52_utt1",
+      "wav_path": "data/wav/test/dia52_utt1.wav",
+      "context": "Ross: Okay I-I just have to stop by my place first.",
+      "transcript": "To tape the game? You do this every time Ross, you're",
+      "gold": "disgust",
+      "predicted": "neutral",
+      "with_emotion": "Oh, that sounds interesting! Let me know when you're done so I can join you later.",
+      "without_emotion": "It sounds like you might be referring to a situation where Ross has become accustomed to being involved in certain activities, such as watching a game together. Is that correct?"
+    },
+    {
+      "clip": "dia54_utt3",
+      "wav_path": "data/wav/test/dia54_utt3.wav",
+      "context": "Rachel: Yes your honor, and here are, are forms, all filled out.\nJudge: So based on your petition you are seeking an annulment on the grounds that Mr. Geller is mentally unstable.",
+      "transcript": "Fine, I'm mentally unstable.",
+      "gold": "anger",
+      "predicted": "anger",
+      "with_emotion": "Understood, please provide more details so I can assist further.",
+      "without_emotion": "It seems like you're saying you have a mental instability issue, but it doesn't seem quite right. Could you clarify more about why you think you need an annulment?"
+    },
+    {
+      "clip": "dia244_utt0",
+      "wav_path": "data/wav/test/dia244_utt0.wav",
+      "context": "",
+      "transcript": "Phoebe, she doesn't know that you sneak out every night, she doesn't know that you sneak back every morning, and she doesn't know that you've been living with your Grandmother's for a week now.",
+      "gold": "neutral",
+      "predicted": "anger",
+      "with_emotion": "I see. It sounds like Phoebe might not have known about all of this.",
+      "without_emotion": "Oh dear, it sounds like Phoebe has some surprises coming her way soon. Let me know if you need any help preparing for whatever's around the corner."
+    },
+    {
+      "clip": "dia102_utt5",
+      "wav_path": "data/wav/test/dia102_utt5.wav",
+      "context": "Phoebe: I don't know, I hardly ever say that about people.\nRachel: Ohh, well, this is just perfect!",
+      "transcript": "Well I'm sorry, I thought you said it was okay.",
+      "gold": "sadness",
+      "predicted": "sadness",
+      "with_emotion": "It\u2019s fine, I understand your point of view. Let's move forward.",
+      "without_emotion": "It seems like there might have been some confusion earlier. You were suggesting something was fine, but Phoebe didn't agree."
+    },
+    {
+      "clip": "dia238_utt1",
+      "wav_path": "data/wav/test/dia238_utt1.wav",
+      "context": "Ross: I thought it was gonna be a closed casket.",
+      "transcript": "Well, that doesn't mean she can't look nice!",
+      "gold": "sadness",
+      "predicted": "joy",
+      "with_emotion": "Understood. Let's focus on making today special instead of worrying about details.",
+      "without_emotion": "It sounds like you're trying to make light of the situation. That's great!"
+    },
+    {
+      "clip": "dia232_utt5",
+      "wav_path": "data/wav/test/dia232_utt5.wav",
+      "context": "Monica: Ohh, he's really shy. I-I don't think he's up to meeting everyone yet.\nChandler: Yeah, I don't think he's up to meeting everyone yet.",
+      "transcript": "I don't care! I wanna meet this guy who's the best sex she ever had!",
+      "gold": "joy",
+      "predicted": "joy",
+      "with_emotion": "Oh wow, that sounds amazing! Meeting someone so special must be thrilling.",
+      "without_emotion": "Well, that's quite bold of him. But it sounds like you're excited about your date."
+    },
+    {
+      "clip": "dia41_utt2",
+      "wav_path": "data/wav/test/dia41_utt2.wav",
+      "context": "Monica: So, we did okay at the strip club, right?\nChandler: Oh yeah, that was great. Thanks to you, the hottest cocktail waitress there is quitting to teach the third grade!",
+      "transcript": "I can't believe it! He still hasn't called.",
+      "gold": "anger",
+      "predicted": "sadness",
+      "with_emotion": "Oh no, disappointing. What happened after he didn't call?",
+      "without_emotion": "It sounds like he might be busy or distracted. You could try sending him an email or leaving a message instead of calling."
+    },
+    {
+      "clip": "dia231_utt11",
+      "wav_path": "data/wav/test/dia231_utt11.wav",
+      "context": "Joey: Okay, good, good, good, 'cause, good, 'cause I was kinda having second thoughts too.\nChandler: Okay. And it's not just chicks y'know? It's all kinds of other animals!",
+      "transcript": "That's horrible! Well, you did the right thing man.",
+      "gold": "disgust",
+      "predicted": "sadness",
+      "with_emotion": "Thank you for your support, I appreciate it.",
+      "without_emotion": "Thank you for your support, it means a lot. I appreciate you understanding my situation."
+    },
+    {
+      "clip": "dia229_utt9",
+      "wav_path": "data/wav/test/dia229_utt9.wav",
+      "context": "Rachel: Umm, can I use your bathroom?\nJoey: It's uh, right through there.",
+      "transcript": "Okay.  God y'know, if someone told me a week ago that I would be peeing in Joey Tribbiani's apartment",
+      "gold": "joy",
+      "predicted": "disgust",
+      "with_emotion": "Got it, thanks for letting me know.",
+      "without_emotion": "Oh wow, that must have been quite an experience! What did it feel like?"
+    },
+    {
+      "clip": "dia99_utt9",
+      "wav_path": "data/wav/test/dia99_utt9.wav",
+      "context": "Chandler: See, I told you they don't swim.\nJoey: Wait. Give him a minute.",
+      "transcript": "Noo!  Oh, it's okay, it's okay, baby, baby, baby.",
+      "gold": "fear",
+      "predicted": "joy",
+      "with_emotion": "Oh, that's sweet. Let's see what happens next.",
+      "without_emotion": "Oh, that's sweet. Is everything alright?"
+    },
+    {
+      "clip": "dia162_utt0",
+      "wav_path": "data/wav/test/dia162_utt0.wav",
+      "context": "",
+      "transcript": "Ooh! I'm sorry! I think, I THINK, that may have missed the table!",
+      "gold": "joy",
+      "predicted": "anger",
+      "with_emotion": "Oh no, I'm sorry to hear that. Let me know if anything changes.",
+      "without_emotion": "Oh no, that sounds stressful. Did someone else take your reservation?"
+    },
+    {
+      "clip": "dia61_utt2",
+      "wav_path": "data/wav/test/dia61_utt2.wav",
+      "context": "Chip: ...and then Zana, just let one rip!!\nMonica: Look, not that I enjoy talking about people who I went to high school with, 'cause I do, but umm, maybe we could talk about something else?",
+      "transcript": "Like you, I don't even know where you work?",
+      "gold": "surprise",
+      "predicted": "surprise",
+      "with_emotion": "Interesting question, Chip. What brings you to my workplace?",
+      "without_emotion": "It seems like we're having some differences of opinion. Perhaps we could discuss your plans instead?"
+    },
+    {
+      "clip": "dia73_utt9",
+      "wav_path": "data/wav/test/dia73_utt9.wav",
+      "context": "Phoebe: Whoa!  I kinda liked it.\nRoss: Okay, I know what I have to do. I've got to go Red Ross.  Y'know, Red Ross!",
+      "transcript": "I totally don't know what you're talking about.",
+      "gold": "neutral",
+      "predicted": "neutral",
+      "with_emotion": "Oh, that's funny! I didn't realize he was your friend from high school.",
+      "without_emotion": "Oh, that's right! You haven't met yet."
+    },
+    {
+      "clip": "dia169_utt2",
+      "wav_path": "data/wav/test/dia169_utt2.wav",
+      "context": "Monica: Oh my God! Joey!\nPhoebe: Hell yeah! I'll marry you!",
+      "transcript": "You can't marry him!",
+      "gold": "anger",
+      "predicted": "anger",
+      "with_emotion": "Oh no, that must have been unexpected. Let me know if there's anything I can assist with.",
+      "without_emotion": "Sorry, that was unclear. How about we change the subject?"
+    },
+    {
+      "clip": "dia123_utt2",
+      "wav_path": "data/wav/test/dia123_utt2.wav",
+      "context": "Monica: Hey. Okay, I gave him another chance, but Tim has\nPhoebe: But",
+      "transcript": "No! No-no! He is totally incompetent. I called the chef who recommended him to me. He said, \"Ha-ha! Gotcha!\"",
+      "gold": "disgust",
+      "predicted": "anger",
+      "with_emotion": "He sounds pretty clueless. Let's see if we can find someone else for you.",
+      "without_emotion": "Oh no, that's quite disappointing. It sounds like he might have made some mistakes."
+    },
+    {
+      "clip": "dia156_utt1",
+      "wav_path": "data/wav/test/dia156_utt1.wav",
+      "context": "Doug: Bing! We're all set for tonight, 8 o'clock.",
+      "transcript": "Oh uh, as it turns out, we can't do it. Monica has to work.",
+      "gold": "joy",
+      "predicted": "sadness",
+      "with_emotion": "Understood. Let's reschedule another time that works better for everyone.",
+      "without_emotion": "Oh no, that's disappointing. Have you tried rescheduling?"
+    }
+  ]
+}

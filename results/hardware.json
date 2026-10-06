@@ -1,0 +1,26 @@
+{
+  "device": "mps",
+  "gpu_name": "Apple M5 integrated GPU (MPS, unified memory)",
+  "gpu_vram_gb": "shared with system RAM",
+  "system_ram_gb": 25.8,
+  "cpu_model": "Apple M5",
+  "cpu_cores": 10,
+  "os": "Darwin 25.5.0",
+  "python": "3.11.17",
+  "libraries": {
+    "torch": "2.14.1",
+    "torchaudio": "2.11.0",
+    "transformers": "5.18.0",
+    "accelerate": "1.15.0",
+    "soundfile": "0.14.0",
+    "librosa": "0.11.0",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.0.6",
+    "numpy": "2.4.6",
+    "ftfy": "6.3.1",
+    "psutil": "7.2.2"
+  },
+  "chosen_llm": "Qwen/Qwen2.5-1.5B-Instruct",
+  "llm_dtype": "torch.float16",
+  "audio_train_subsample": null
+}

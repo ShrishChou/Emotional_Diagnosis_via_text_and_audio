@@ -1,0 +1,51 @@
+clip,gold,predicted,transcript,reply,first_token_ms,total_ms,sentences,ends_cleanly,emotion_word,announces_feeling
+dia22_utt8,sadness,neutral,"Because of the weekend, we had a fight.",Got that. It sounds like some good times led to an argument.,277.5,736.3,2,True,False,False
+dia183_utt7,neutral,neutral,"Y'know, there are two people who could put your picture up there.","Oh, that sounds exciting! Who are these two people?",322.0,662.5,2,True,False,False
+dia47_utt6,sadness,neutral,Yeah but we won't be able to like get up in the middle of the night and have those long talks about our feelings and the future.,"Got it, sounds like you both need some space. Let's plan something fun another time.",303.5,1008.9,2,True,False,False
+dia202_utt5,joy,joy,"Yeah, we ended up spending the day together and had such a great time!",Sounds like an amazing day! What did you guys end up doing?,295.5,763.7,2,True,False,False
+dia52_utt1,disgust,neutral,"To tape the game? You do this every time Ross, you're","Oh, that sounds interesting! Let me know when you're done so I can join you later.",323.4,979.5,2,True,False,False
+dia54_utt3,anger,anger,"Fine, I'm mentally unstable.","Understood, please provide more details so I can assist further.",390.1,782.6,1,True,False,False
+dia244_utt0,neutral,anger,"Phoebe, she doesn't know that you sneak out every night, she doesn't know that you sneak back every morning, and she doesn't know that you've been living with your Grandmother's for a week now.",I see. It sounds like Phoebe might not have known about all of this.,297.0,982.1,2,True,False,False
+dia102_utt5,sadness,sadness,"Well I'm sorry, I thought you said it was okay.","It’s fine, I understand your point of view. Let's move forward.",365.8,871.4,2,True,False,False
+dia238_utt1,sadness,joy,"Well, that doesn't mean she can't look nice!",Understood. Let's focus on making today special instead of worrying about details.,347.8,802.7,2,True,False,False
+dia232_utt5,joy,joy,I don't care! I wanna meet this guy who's the best sex she ever had!,"Oh wow, that sounds amazing! Meeting someone so special must be thrilling.",301.0,805.8,2,True,False,False
+dia41_utt2,anger,sadness,I can't believe it! He still hasn't called.,"Oh no, disappointing. What happened after he didn't call?",360.8,814.6,2,True,False,False
+dia231_utt11,disgust,sadness,"That's horrible! Well, you did the right thing man.","Thank you for your support, I appreciate it.",304.1,663.6,1,True,False,False
+dia229_utt9,joy,disgust,"Okay.  God y'know, if someone told me a week ago that I would be peeing in Joey Tribbiani's apartment","Got it, thanks for letting me know.",415.8,838.2,1,True,False,False
+dia99_utt9,fear,joy,"Noo!  Oh, it's okay, it's okay, baby, baby, baby.","Oh, that's sweet. Let's see what happens next.",335.8,720.4,2,True,False,False
+dia162_utt0,joy,anger,"Ooh! I'm sorry! I think, I THINK, that may have missed the table!","Oh no, I'm sorry to hear that. Let me know if anything changes.",284.5,863.6,2,True,False,False
+dia61_utt2,surprise,surprise,"Like you, I don't even know where you work?","Interesting question, Chip. What brings you to my workplace?",308.5,690.9,2,True,False,False
+dia73_utt9,neutral,neutral,I totally don't know what you're talking about.,"Oh, that's funny! I didn't realize he was your friend from high school.",344.7,919.5,2,True,False,False
+dia169_utt2,anger,anger,You can't marry him!,"Oh no, that must have been unexpected. Let me know if there's anything I can assist with.",289.5,1012.9,2,True,False,False
+dia123_utt2,disgust,anger,"No! No-no! He is totally incompetent. I called the chef who recommended him to me. He said, ""Ha-ha! Gotcha!""",He sounds pretty clueless. Let's see if we can find someone else for you.,285.5,899.4,2,True,False,False
+dia156_utt1,joy,sadness,"Oh uh, as it turns out, we can't do it. Monica has to work.",Understood. Let's reschedule another time that works better for everyone.,342.4,776.6,2,True,False,False
+dia36_utt0,neutral,neutral,C'mon up.,Sure thing! Upstairs please.,284.4,503.4,2,True,False,False
+dia239_utt2,surprise,surprise,"Jeez, man did you fall.. Hi! So ah, did ya, did-did-did ya fall high?","Oh wow, that was unexpected! Thanks for sharing that.",306.0,689.8,2,True,False,False
+dia223_utt1,fear,fear,"I'm not worried, I'm uh, I'm fascinated.","Gotcha. Well, whatever happened, it sounds fascinating.",379.1,690.2,2,True,False,False
+dia32_utt8,surprise,surprise,"Oh, what? What was it?","Oh, what? What was it?",359.6,553.0,2,True,False,False
+dia95_utt10,neutral,neutral,No I'm not.,"Understood, let's move forward without any tension. How about discussing something else?",357.1,853.8,2,True,False,False
+dia70_utt9,disgust,anger,"What do you think you're gonna do, have sex with her right here    on my couch?","Sorry, that was inappropriate. Let's change the subject.",305.4,674.5,2,True,False,False
+dia222_utt12,anger,anger,"And then you realised if you  bitched about it, then you  would stop cooking, and you  would have to make your famous baked potato and Diet Coke.","Ah, that sounds quite amusing. Maybe next time you could let us know what you're cooking first!",369.2,1066.4,2,True,False,False
+dia38_utt1,joy,joy,"Awww, one of my students got an audition. I'm so proud.",That's great news! I'm sure your student will shine at the audition.,324.4,827.3,2,True,False,False
+dia97_utt8,fear,fear,Uh-oh!,"Got it, let me know when you're ready.",303.0,689.3,1,True,False,False
+dia170_utt1,surprise,joy,"Ohh, let me see it! Let me see your hand!","Wow, that's exciting! Can't wait to see it.",316.1,698.5,2,True,False,False
+dia195_utt0,fear,fear,"Okay look, don't...don't be mad okay?","Relax, everything will work out. Let's move forward without stress.",363.6,819.9,2,True,False,False
+dia262_utt3,surprise,surprise,Wow! You're a lot sturdier that Chandler. He crumpled like a piece of paper. So how was you're trip?,Really? That's impressive!,321.6,437.6,2,True,False,False
+dia120_utt9,disgust,neutral,No.,"Got it, thanks for letting me know. Maybe we can think of something else later.",279.7,887.9,2,True,False,False
+dia230_utt8,disgust,surprise,Ewww!,"Oh no, that sounds yucky. Can you tell me more about what happened?",267.9,841.0,2,True,False,False
+dia202_utt1,joy,joy,Hey!,Hi there! How are you doing today?,270.0,535.2,2,True,False,False
+dia95_utt17,fear,neutral,"Umm, see, I was thinking maybe you two could switch apartments because Phoebe's more our kind of people.","Interesting idea, thanks for considering it. Let's think about it together.",275.5,771.7,2,True,False,False
+dia100_utt19,sadness,anger,"Leslie, now would be a","Leslie, I see you need some help. What seems to be the issue?",338.5,831.6,2,True,False,False
+dia137_utt12,surprise,surprise,After she gave me that big speech?!,Monica giving you a big speech? That sounds interesting.,298.1,645.4,2,True,False,False
+dia93_utt15,neutral,neutral,"I-I-I saw you on stage talking to that beautiful woman, y'know Sarah?","Oh, I didn't realize you were watching. Thanks for letting me know.",351.2,848.1,2,True,False,False
+dia5_utt0,anger,neutral,You're coming on to the entire room!  I'm Chandler.,"Got it, sounds good. Let me know when you're ready.",280.2,734.7,2,True,False,False
+dia57_utt5,disgust,neutral,But you will always be the guy who peed on me.,"Understood. If you need anything else, I’m here.",378.7,719.5,2,True,False,False
+dia199_utt7,sadness,sadness,I don't think he's the one I'm sad about.,"Got it, sounds good. Let me know if you need anything else.",304.0,797.8,2,True,False,False
+dia139_utt3,joy,joy,Hi Jill!,Hello Jill! How are you today?,272.1,499.3,2,True,False,False
+dia98_utt8,anger,neutral,Could we talk about this later?,"Sure thing, let's save it until another time.",268.7,654.2,1,True,False,False
+dia113_utt4,fear,fear,No-no! Don't do it! Don't!,"Don't worry, everything will be fine. Let's handle this together.",318.8,772.8,2,True,False,False
+dia215_utt1,neutral,neutral,"July. Umm,","Sure thing, July. Any other details you'd like to add?",259.8,719.0,2,True,False,False
+dia250_utt0,fear,sadness,"Well, I y'know, I was just, umm, I was just thinking and hoping, that umm, maybe you'd want to get back together?","That sounds nice, let’s see where it goes from there.",307.0,768.5,1,True,False,False
+dia231_utt9,fear,neutral,"Okay, good, good, good, 'cause, good, 'cause I was kinda having second thoughts too.","Understood, I'll wait for more details before responding.",385.0,737.4,1,True,False,False
+dia96_utt3,disgust,disgust,"Oh my God. Okay, go into the bathroom, use whatever you want, just don't ever tell me what you did in there.",Got it. Just let me know when you're ready.,298.6,683.5,2,True,False,False
+dia109_utt3,neutral,neutral,That's OK.,"Got it, thanks for letting me know.",311.7,620.7,1,True,False,False

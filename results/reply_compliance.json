@@ -1,0 +1,129 @@
+{
+  "n_clips": 50,
+  "bar": {
+    "within_2_sentences": [
+      ">=",
+      0.95
+    ],
+    "ends_cleanly": [
+      ">=",
+      0.9
+    ],
+    "emotion_word": [
+      "<=",
+      0.05
+    ],
+    "announces_feeling": [
+      "<=",
+      0.1
+    ],
+    "first_token_p95_ms": [
+      "<",
+      1000.0
+    ]
+  },
+  "decision_rule": "smallest model that meets the bar",
+  "smallest_passing": "qwen2.5-1.5b_behavior",
+  "configs": {
+    "qwen2.5-1.5b_baseline": {
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "style": "baseline",
+      "n": 50,
+      "llm_params": 1543714304,
+      "pipeline_total_params": 2004484747,
+      "within_2_sentences": 0.76,
+      "ends_cleanly": 1.0,
+      "emotion_word": 0.04,
+      "announces_feeling": 0.02,
+      "empty": 0.0,
+      "mean_words": 15.98,
+      "first_token_p50_ms": 182.5,
+      "first_token_p95_ms": 234.14999999999998,
+      "total_p50_ms": 735.5999999999999,
+      "total_p95_ms": 1247.1699999999996,
+      "passes": {
+        "within_2_sentences": false,
+        "ends_cleanly": true,
+        "emotion_word": true,
+        "announces_feeling": true,
+        "first_token_p95_ms": true
+      },
+      "meets_bar": false
+    },
+    "qwen2.5-1.5b_behavior": {
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "style": "behavior",
+      "n": 50,
+      "llm_params": 1543714304,
+      "pipeline_total_params": 2004484747,
+      "within_2_sentences": 1.0,
+      "ends_cleanly": 1.0,
+      "emotion_word": 0.0,
+      "announces_feeling": 0.0,
+      "empty": 0.0,
+      "mean_words": 10.24,
+      "first_token_p50_ms": 307.75,
+      "first_token_p95_ms": 382.34499999999997,
+      "total_p50_ms": 770.1,
+      "total_p95_ms": 996.8399999999999,
+      "passes": {
+        "within_2_sentences": true,
+        "ends_cleanly": true,
+        "emotion_word": true,
+        "announces_feeling": true,
+        "first_token_p95_ms": true
+      },
+      "meets_bar": true
+    },
+    "qwen2.5-3b_behavior": {
+      "model": "Qwen/Qwen2.5-3B-Instruct",
+      "style": "behavior",
+      "n": 50,
+      "llm_params": 3085938688,
+      "pipeline_total_params": 3546709131,
+      "within_2_sentences": 1.0,
+      "ends_cleanly": 1.0,
+      "emotion_word": 0.0,
+      "announces_feeling": 0.0,
+      "empty": 0.0,
+      "mean_words": 12.56,
+      "first_token_p50_ms": 598.0,
+      "first_token_p95_ms": 701.63,
+      "total_p50_ms": 1490.1,
+      "total_p95_ms": 2165.61,
+      "passes": {
+        "within_2_sentences": true,
+        "ends_cleanly": true,
+        "emotion_word": true,
+        "announces_feeling": true,
+        "first_token_p95_ms": true
+      },
+      "meets_bar": true
+    },
+    "qwen3-4b-2507_behavior": {
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "style": "behavior",
+      "n": 50,
+      "llm_params": 4022468096,
+      "pipeline_total_params": 4483238539,
+      "within_2_sentences": 1.0,
+      "ends_cleanly": 0.96,
+      "emotion_word": 0.0,
+      "announces_feeling": 0.06,
+      "empty": 0.0,
+      "mean_words": 12.66,
+      "first_token_p50_ms": 837.8,
+      "first_token_p95_ms": 980.965,
+      "total_p50_ms": 2133.4,
+      "total_p95_ms": 2953.089999999999,
+      "passes": {
+        "within_2_sentences": true,
+        "ends_cleanly": true,
+        "emotion_word": true,
+        "announces_feeling": true,
+        "first_token_p95_ms": true
+      },
+      "meets_bar": true
+    }
+  }
+}

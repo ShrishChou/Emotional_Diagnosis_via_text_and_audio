@@ -1,0 +1,64 @@
+1/50 dia269_utt1: state 161 ms (asr 114), first token 208 ms
+2/50 dia102_utt4: state 140 ms (asr 96), first token 198 ms
+3/50 dia121_utt3: state 121 ms (asr 82), first token 258 ms
+4/50 dia240_utt3: state 138 ms (asr 91), first token 234 ms
+5/50 dia253_utt6: state 146 ms (asr 104), first token 201 ms
+6/50 dia166_utt8: state 129 ms (asr 84), first token 231 ms
+7/50 dia243_utt1: state 166 ms (asr 125), first token 259 ms
+8/50 dia111_utt9: state 141 ms (asr 94), first token 191 ms
+9/50 dia208_utt5: state 135 ms (asr 94), first token 192 ms
+10/50 dia228_utt11: state 130 ms (asr 88), first token 191 ms
+11/50 dia98_utt5: state 145 ms (asr 105), first token 226 ms
+12/50 dia104_utt2: state 136 ms (asr 94), first token 269 ms
+13/50 dia123_utt9: state 233 ms (asr 156), first token 206 ms
+14/50 dia93_utt1: state 174 ms (asr 122), first token 226 ms
+15/50 dia253_utt2: state 222 ms (asr 145), first token 200 ms
+16/50 dia85_utt0: state 154 ms (asr 102), first token 188 ms
+17/50 dia7_utt3: state 198 ms (asr 135), first token 193 ms
+18/50 dia66_utt2: state 177 ms (asr 111), first token 225 ms
+19/50 dia120_utt18: state 161 ms (asr 114), first token 271 ms
+20/50 dia117_utt1: state 128 ms (asr 90), first token 225 ms
+21/50 dia237_utt11: state 207 ms (asr 142), first token 205 ms
+22/50 dia270_utt2: state 244 ms (asr 157), first token 228 ms
+23/50 dia80_utt7: state 160 ms (asr 110), first token 202 ms
+24/50 dia49_utt8: state 238 ms (asr 176), first token 200 ms
+25/50 dia70_utt7: state 108 ms (asr 78), first token 225 ms
+26/50 dia21_utt2: state 125 ms (asr 87), first token 192 ms
+27/50 dia204_utt1: state 122 ms (asr 94), first token 192 ms
+28/50 dia80_utt1: state 122 ms (asr 77), first token 190 ms
+29/50 dia240_utt2: state 177 ms (asr 120), first token 203 ms
+30/50 dia153_utt7: state 260 ms (asr 181), first token 200 ms
+31/50 dia173_utt8: state 100 ms (asr 80), first token 195 ms
+32/50 dia175_utt20: state 167 ms (asr 129), first token 234 ms
+33/50 dia262_utt16: state 113 ms (asr 84), first token 192 ms
+34/50 dia89_utt0: state 133 ms (asr 100), first token 189 ms
+35/50 dia213_utt0: state 187 ms (asr 131), first token 190 ms
+36/50 dia49_utt3: state 160 ms (asr 115), first token 194 ms
+37/50 dia186_utt1: state 177 ms (asr 119), first token 227 ms
+38/50 dia182_utt0: state 137 ms (asr 92), first token 226 ms
+39/50 dia113_utt2: state 118 ms (asr 91), first token 193 ms
+40/50 dia64_utt16: state 172 ms (asr 113), first token 224 ms
+41/50 dia225_utt1: state 155 ms (asr 104), first token 194 ms
+42/50 dia203_utt1: state 131 ms (asr 98), first token 226 ms
+43/50 dia78_utt2: state 150 ms (asr 105), first token 201 ms
+44/50 dia34_utt7: state 187 ms (asr 135), first token 267 ms
+45/50 dia270_utt11: state 162 ms (asr 107), first token 232 ms
+46/50 dia259_utt15: state 126 ms (asr 85), first token 268 ms
+47/50 dia88_utt0: state 133 ms (asr 98), first token 193 ms
+48/50 dia117_utt8: state 168 ms (asr 114), first token 265 ms
+49/50 dia241_utt4: state 129 ms (asr 88), first token 265 ms
+50/50 dia99_utt5: state 180 ms (asr 106), first token 227 ms
+audio_load       p50      3.2 ms   p95      4.6 ms
+asr              p50    104.7 ms   p95    156.7 ms
+text_enc         p50      8.3 ms   p95     10.5 ms
+audio_enc        p50     34.0 ms   p95     61.1 ms
+heads            p50      0.6 ms   p95      0.8 ms
+state_no_asr     p50     45.8 ms   p95     77.0 ms
+state_total      p50    151.8 ms   p95    235.8 ms
+llm_first_token  p50    205.4 ms   p95    267.2 ms
+llm_total        p50    823.0 ms   p95   1176.9 ms
+tts_first_audio  p50    586.3 ms   p95    964.5 ms
+tts_total        p50    403.6 ms   p95    654.4 ms
+speech_end_to_audio_no_asr p50    642.1 ms   p95   1009.2 ms
+speech_end_to_audio p50    752.4 ms   p95   1108.7 ms
+{'peak_rss_gb_sampled': 4.81, 'peak_rss_gb_getrusage': 4.87, 'rss_after_load_gb': 1.76, 'peak_gpu_gb': 5.49, 'gpu_memory_source': 'torch.mps.driver_allocated_memory (sampled every 20 ms)'}

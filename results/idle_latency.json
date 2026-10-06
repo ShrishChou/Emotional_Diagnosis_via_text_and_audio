@@ -1,0 +1,289 @@
+{
+  "device": "mps",
+  "repeats": 3,
+  "ping_lead_s": 1.0,
+  "median_by_gap": [
+    {
+      "gap_s": 0,
+      "condition": "cold",
+      "state_ms": 52.0,
+      "audio_enc_ms": 39.0,
+      "first_token_ms": 411.0
+    },
+    {
+      "gap_s": 0,
+      "condition": "ping",
+      "state_ms": 49.0,
+      "audio_enc_ms": 37.0,
+      "first_token_ms": 371.0
+    },
+    {
+      "gap_s": 2,
+      "condition": "cold",
+      "state_ms": 134.0,
+      "audio_enc_ms": 69.0,
+      "first_token_ms": 349.0
+    },
+    {
+      "gap_s": 2,
+      "condition": "ping",
+      "state_ms": 57.0,
+      "audio_enc_ms": 35.0,
+      "first_token_ms": 344.0
+    },
+    {
+      "gap_s": 5,
+      "condition": "cold",
+      "state_ms": 147.0,
+      "audio_enc_ms": 92.0,
+      "first_token_ms": 359.0
+    },
+    {
+      "gap_s": 5,
+      "condition": "ping",
+      "state_ms": 76.0,
+      "audio_enc_ms": 43.0,
+      "first_token_ms": 353.0
+    },
+    {
+      "gap_s": 10,
+      "condition": "cold",
+      "state_ms": 150.0,
+      "audio_enc_ms": 91.0,
+      "first_token_ms": 357.0
+    },
+    {
+      "gap_s": 10,
+      "condition": "ping",
+      "state_ms": 70.0,
+      "audio_enc_ms": 44.0,
+      "first_token_ms": 366.0
+    },
+    {
+      "gap_s": 20,
+      "condition": "cold",
+      "state_ms": 312.0,
+      "audio_enc_ms": 228.0,
+      "first_token_ms": 399.0
+    },
+    {
+      "gap_s": 20,
+      "condition": "ping",
+      "state_ms": 132.0,
+      "audio_enc_ms": 69.0,
+      "first_token_ms": 378.0
+    }
+  ],
+  "runs": [
+    {
+      "gap_s": 0,
+      "condition": "cold",
+      "state_ms": 104.2,
+      "audio_enc_ms": 78.7,
+      "first_token_ms": 449.2
+    },
+    {
+      "gap_s": 0,
+      "condition": "cold",
+      "state_ms": 51.5,
+      "audio_enc_ms": 39.0,
+      "first_token_ms": 411.3
+    },
+    {
+      "gap_s": 0,
+      "condition": "cold",
+      "state_ms": 31.7,
+      "audio_enc_ms": 19.8,
+      "first_token_ms": 321.0
+    },
+    {
+      "gap_s": 0,
+      "condition": "ping",
+      "state_ms": 54.3,
+      "audio_enc_ms": 41.2,
+      "first_token_ms": 404.8
+    },
+    {
+      "gap_s": 0,
+      "condition": "ping",
+      "state_ms": 49.0,
+      "audio_enc_ms": 37.0,
+      "first_token_ms": 370.6
+    },
+    {
+      "gap_s": 0,
+      "condition": "ping",
+      "state_ms": 27.5,
+      "audio_enc_ms": 16.5,
+      "first_token_ms": 318.5
+    },
+    {
+      "gap_s": 2,
+      "condition": "cold",
+      "state_ms": 104.3,
+      "audio_enc_ms": 56.4,
+      "first_token_ms": 314.6
+    },
+    {
+      "gap_s": 2,
+      "condition": "cold",
+      "state_ms": 134.0,
+      "audio_enc_ms": 68.8,
+      "first_token_ms": 348.9
+    },
+    {
+      "gap_s": 2,
+      "condition": "cold",
+      "state_ms": 168.7,
+      "audio_enc_ms": 113.4,
+      "first_token_ms": 369.4
+    },
+    {
+      "gap_s": 2,
+      "condition": "ping",
+      "state_ms": 54.2,
+      "audio_enc_ms": 34.9,
+      "first_token_ms": 284.0
+    },
+    {
+      "gap_s": 2,
+      "condition": "ping",
+      "state_ms": 56.6,
+      "audio_enc_ms": 31.9,
+      "first_token_ms": 344.1
+    },
+    {
+      "gap_s": 2,
+      "condition": "ping",
+      "state_ms": 101.2,
+      "audio_enc_ms": 73.7,
+      "first_token_ms": 386.1
+    },
+    {
+      "gap_s": 5,
+      "condition": "cold",
+      "state_ms": 1474.2,
+      "audio_enc_ms": 556.1,
+      "first_token_ms": 501.2
+    },
+    {
+      "gap_s": 5,
+      "condition": "cold",
+      "state_ms": 147.0,
+      "audio_enc_ms": 91.5,
+      "first_token_ms": 358.9
+    },
+    {
+      "gap_s": 5,
+      "condition": "cold",
+      "state_ms": 121.5,
+      "audio_enc_ms": 65.2,
+      "first_token_ms": 336.9
+    },
+    {
+      "gap_s": 5,
+      "condition": "ping",
+      "state_ms": 78.1,
+      "audio_enc_ms": 42.8,
+      "first_token_ms": 377.5
+    },
+    {
+      "gap_s": 5,
+      "condition": "ping",
+      "state_ms": 76.5,
+      "audio_enc_ms": 45.0,
+      "first_token_ms": 353.3
+    },
+    {
+      "gap_s": 5,
+      "condition": "ping",
+      "state_ms": 65.2,
+      "audio_enc_ms": 37.6,
+      "first_token_ms": 282.8
+    },
+    {
+      "gap_s": 10,
+      "condition": "cold",
+      "state_ms": 125.2,
+      "audio_enc_ms": 61.2,
+      "first_token_ms": 371.5
+    },
+    {
+      "gap_s": 10,
+      "condition": "cold",
+      "state_ms": 150.4,
+      "audio_enc_ms": 90.8,
+      "first_token_ms": 357.1
+    },
+    {
+      "gap_s": 10,
+      "condition": "cold",
+      "state_ms": 230.0,
+      "audio_enc_ms": 123.7,
+      "first_token_ms": 353.8
+    },
+    {
+      "gap_s": 10,
+      "condition": "ping",
+      "state_ms": 107.9,
+      "audio_enc_ms": 59.2,
+      "first_token_ms": 365.7
+    },
+    {
+      "gap_s": 10,
+      "condition": "ping",
+      "state_ms": 70.4,
+      "audio_enc_ms": 43.9,
+      "first_token_ms": 381.7
+    },
+    {
+      "gap_s": 10,
+      "condition": "ping",
+      "state_ms": 63.9,
+      "audio_enc_ms": 37.6,
+      "first_token_ms": 286.2
+    },
+    {
+      "gap_s": 20,
+      "condition": "cold",
+      "state_ms": 311.5,
+      "audio_enc_ms": 227.5,
+      "first_token_ms": 398.9
+    },
+    {
+      "gap_s": 20,
+      "condition": "cold",
+      "state_ms": 354.7,
+      "audio_enc_ms": 274.2,
+      "first_token_ms": 784.7
+    },
+    {
+      "gap_s": 20,
+      "condition": "cold",
+      "state_ms": 114.8,
+      "audio_enc_ms": 51.3,
+      "first_token_ms": 286.7
+    },
+    {
+      "gap_s": 20,
+      "condition": "ping",
+      "state_ms": 132.5,
+      "audio_enc_ms": 69.3,
+      "first_token_ms": 402.3
+    },
+    {
+      "gap_s": 20,
+      "condition": "ping",
+      "state_ms": 185.3,
+      "audio_enc_ms": 127.7,
+      "first_token_ms": 378.0
+    },
+    {
+      "gap_s": 20,
+      "condition": "ping",
+      "state_ms": 85.8,
+      "audio_enc_ms": 30.9,
+      "first_token_ms": 250.1
+    }
+  ]
+}

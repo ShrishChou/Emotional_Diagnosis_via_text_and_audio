@@ -1,0 +1,462 @@
+{
+  "overall": {
+    "text": {
+      "accuracy": 0.6222222222222222,
+      "weighted_f1": 0.6169297462900335,
+      "macro_f1": 0.43085153121094055
+    },
+    "fused": {
+      "accuracy": 0.6291187739463602,
+      "weighted_f1": 0.6223889275428969,
+      "macro_f1": 0.44921242089725594
+    },
+    "text_asr": {
+      "accuracy": 0.5398467432950191,
+      "weighted_f1": 0.5139730987888673,
+      "macro_f1": 0.35166568700357553
+    },
+    "fused_asr": {
+      "accuracy": 0.5524904214559387,
+      "weighted_f1": 0.5249814098324634,
+      "macro_f1": 0.3580295714216702
+    }
+  },
+  "per_class": [
+    {
+      "gold class": "anger",
+      "support": 345,
+      "text recall": 0.5072463768115942,
+      "fused recall": 0.4956521739130435,
+      "fused precision": 0.49421965317919075,
+      "fused F1": 0.49493487698986977,
+      "fused recall (ASR)": 0.3217391304347826,
+      "\u2192 neutral": 0.2
+    },
+    {
+      "gold class": "disgust",
+      "support": 68,
+      "text recall": 0.10294117647058823,
+      "fused recall": 0.1323529411764706,
+      "fused precision": 0.1875,
+      "fused F1": 0.15517241379310345,
+      "fused recall (ASR)": 0.11764705882352941,
+      "\u2192 neutral": 0.36764705882352944
+    },
+    {
+      "gold class": "fear",
+      "support": 50,
+      "text recall": 0.28,
+      "fused recall": 0.24,
+      "fused precision": 0.2727272727272727,
+      "fused F1": 0.2553191489361702,
+      "fused recall (ASR)": 0.14,
+      "\u2192 neutral": 0.24
+    },
+    {
+      "gold class": "joy",
+      "support": 402,
+      "text recall": 0.5422885572139303,
+      "fused recall": 0.5248756218905473,
+      "fused precision": 0.5926966292134831,
+      "fused F1": 0.5567282321899736,
+      "fused recall (ASR)": 0.2810945273631841,
+      "\u2192 neutral": 0.24129353233830847
+    },
+    {
+      "gold class": "neutral",
+      "support": 1256,
+      "text recall": 0.7882165605095541,
+      "fused recall": 0.803343949044586,
+      "fused precision": 0.7586466165413533,
+      "fused F1": 0.7803557617942769,
+      "fused recall (ASR)": 0.8232484076433121,
+      "\u2192 neutral": NaN
+    },
+    {
+      "gold class": "sadness",
+      "support": 208,
+      "text recall": 0.23076923076923078,
+      "fused recall": 0.32211538461538464,
+      "fused precision": 0.43506493506493504,
+      "fused F1": 0.3701657458563536,
+      "fused recall (ASR)": 0.2980769230769231,
+      "\u2192 neutral": 0.3798076923076923
+    },
+    {
+      "gold class": "surprise",
+      "support": 281,
+      "text recall": 0.6120996441281139,
+      "fused recall": 0.5800711743772242,
+      "fused precision": 0.49096385542168675,
+      "fused F1": 0.531810766721044,
+      "fused recall (ASR)": 0.3807829181494662,
+      "\u2192 neutral": 0.1387900355871886
+    }
+  ],
+  "top_confusions": [
+    {
+      "gold": "joy",
+      "fused_pred": "neutral",
+      "count": 97,
+      "share of all errors": 0.10020661157024793
+    },
+    {
+      "gold": "sadness",
+      "fused_pred": "neutral",
+      "count": 79,
+      "share of all errors": 0.08161157024793389
+    },
+    {
+      "gold": "anger",
+      "fused_pred": "neutral",
+      "count": 69,
+      "share of all errors": 0.07128099173553719
+    },
+    {
+      "gold": "neutral",
+      "fused_pred": "joy",
+      "count": 68,
+      "share of all errors": 0.07024793388429752
+    },
+    {
+      "gold": "neutral",
+      "fused_pred": "anger",
+      "count": 57,
+      "share of all errors": 0.058884297520661155
+    },
+    {
+      "gold": "neutral",
+      "fused_pred": "surprise",
+      "count": 56,
+      "share of all errors": 0.05785123966942149
+    },
+    {
+      "gold": "joy",
+      "fused_pred": "anger",
+      "count": 47,
+      "share of all errors": 0.04855371900826446
+    },
+    {
+      "gold": "anger",
+      "fused_pred": "surprise",
+      "count": 44,
+      "share of all errors": 0.045454545454545456
+    },
+    {
+      "gold": "neutral",
+      "fused_pred": "sadness",
+      "count": 43,
+      "share of all errors": 0.04442148760330578
+    },
+    {
+      "gold": "surprise",
+      "fused_pred": "neutral",
+      "count": 39,
+      "share of all errors": 0.040289256198347105
+    }
+  ],
+  "slices": {
+    "confidence": [
+      {
+        "Fused confidence (temperature-scaled)": "<0.4",
+        "n": 476,
+        "share": 0.18237547892720307,
+        "text_acc": 0.34243697478991597,
+        "fused_acc": 0.34243697478991597,
+        "fused_asr_acc": 0.3697478991596639,
+        "fused_wF1": 0.357494691704025
+      },
+      {
+        "Fused confidence (temperature-scaled)": "0.4-0.5",
+        "n": 436,
+        "share": 0.16704980842911876,
+        "text_acc": 0.45871559633027525,
+        "fused_acc": 0.47706422018348627,
+        "fused_asr_acc": 0.3738532110091743,
+        "fused_wF1": 0.46583311386360965
+      },
+      {
+        "Fused confidence (temperature-scaled)": "0.5-0.6",
+        "n": 394,
+        "share": 0.15095785440613027,
+        "text_acc": 0.5786802030456852,
+        "fused_acc": 0.5913705583756346,
+        "fused_asr_acc": 0.5025380710659898,
+        "fused_wF1": 0.575700546369377
+      },
+      {
+        "Fused confidence (temperature-scaled)": "0.6-0.7",
+        "n": 357,
+        "share": 0.1367816091954023,
+        "text_acc": 0.6778711484593838,
+        "fused_acc": 0.6918767507002801,
+        "fused_asr_acc": 0.5826330532212886,
+        "fused_wF1": 0.6789441028642063
+      },
+      {
+        "Fused confidence (temperature-scaled)": "0.7-0.8",
+        "n": 336,
+        "share": 0.12873563218390804,
+        "text_acc": 0.7321428571428571,
+        "fused_acc": 0.7261904761904762,
+        "fused_asr_acc": 0.6071428571428571,
+        "fused_wF1": 0.7090324212760392
+      },
+      {
+        "Fused confidence (temperature-scaled)": "0.8-0.9",
+        "n": 327,
+        "share": 0.12528735632183907,
+        "text_acc": 0.8501529051987767,
+        "fused_acc": 0.8562691131498471,
+        "fused_asr_acc": 0.7614678899082569,
+        "fused_wF1": 0.8483705353798126
+      },
+      {
+        "Fused confidence (temperature-scaled)": "0.9-1.0",
+        "n": 284,
+        "share": 0.10881226053639846,
+        "text_acc": 0.9401408450704225,
+        "fused_acc": 0.9401408450704225,
+        "fused_asr_acc": 0.8591549295774648,
+        "fused_wF1": 0.9333593939000572
+      }
+    ],
+    "utterance_words": [
+      {
+        "Utterance length (words)": "1-2",
+        "n": 493,
+        "share": 0.18888888888888888,
+        "text_acc": 0.7079107505070994,
+        "fused_acc": 0.7241379310344828,
+        "fused_asr_acc": 0.5273833671399595,
+        "fused_wF1": 0.7221266743567184
+      },
+      {
+        "Utterance length (words)": "3-5",
+        "n": 610,
+        "share": 0.23371647509578544,
+        "text_acc": 0.6754098360655738,
+        "fused_acc": 0.6639344262295082,
+        "fused_asr_acc": 0.5737704918032787,
+        "fused_wF1": 0.6539052595485109
+      },
+      {
+        "Utterance length (words)": "6-10",
+        "n": 708,
+        "share": 0.271264367816092,
+        "text_acc": 0.6073446327683616,
+        "fused_acc": 0.614406779661017,
+        "fused_asr_acc": 0.577683615819209,
+        "fused_wF1": 0.610457323045413
+      },
+      {
+        "Utterance length (words)": "11-20",
+        "n": 648,
+        "share": 0.2482758620689655,
+        "text_acc": 0.5555555555555556,
+        "fused_acc": 0.5632716049382716,
+        "fused_asr_acc": 0.5447530864197531,
+        "fused_wF1": 0.5551159587701635
+      },
+      {
+        "Utterance length (words)": "21+",
+        "n": 151,
+        "share": 0.057854406130268196,
+        "text_acc": 0.48344370860927155,
+        "fused_acc": 0.5298013245033113,
+        "fused_asr_acc": 0.46357615894039733,
+        "fused_wF1": 0.5084458026426965
+      }
+    ],
+    "clip_seconds": [
+      {
+        "Clip duration (s)": "<1",
+        "n": 223,
+        "share": 0.08544061302681992,
+        "text_acc": 0.6816143497757847,
+        "fused_acc": 0.6636771300448431,
+        "fused_asr_acc": 0.5022421524663677,
+        "fused_wF1": 0.6629376012784084
+      },
+      {
+        "Clip duration (s)": "1-2",
+        "n": 684,
+        "share": 0.2620689655172414,
+        "text_acc": 0.706140350877193,
+        "fused_acc": 0.7236842105263158,
+        "fused_asr_acc": 0.6008771929824561,
+        "fused_wF1": 0.7113566200484978
+      },
+      {
+        "Clip duration (s)": "2-4",
+        "n": 1010,
+        "share": 0.38697318007662834,
+        "text_acc": 0.6,
+        "fused_acc": 0.6099009900990099,
+        "fused_asr_acc": 0.5425742574257426,
+        "fused_wF1": 0.6029180849886704
+      },
+      {
+        "Clip duration (s)": "4-8",
+        "n": 575,
+        "share": 0.22030651340996169,
+        "text_acc": 0.56,
+        "fused_acc": 0.5565217391304348,
+        "fused_asr_acc": 0.5443478260869565,
+        "fused_wF1": 0.5485821184157166
+      },
+      {
+        "Clip duration (s)": "8+",
+        "n": 118,
+        "share": 0.045210727969348656,
+        "text_acc": 0.5169491525423728,
+        "fused_acc": 0.5338983050847458,
+        "fused_asr_acc": 0.4915254237288136,
+        "fused_wF1": 0.5476424291370294
+      }
+    ],
+    "has_context": [
+      {
+        "Dialogue context": "first line of dialogue",
+        "n": 280,
+        "share": 0.10727969348659004,
+        "text_acc": 0.6642857142857143,
+        "fused_acc": 0.675,
+        "fused_asr_acc": 0.575,
+        "fused_wF1": 0.6603258644594961
+      },
+      {
+        "Dialogue context": "has previous lines",
+        "n": 2330,
+        "share": 0.89272030651341,
+        "text_acc": 0.6171673819742489,
+        "fused_acc": 0.6236051502145923,
+        "fused_asr_acc": 0.5497854077253219,
+        "fused_wF1": 0.6175648274372447
+      }
+    ],
+    "speaker_group": [
+      {
+        "Speaker": "Chandler",
+        "n": 379,
+        "share": 0.14521072796934867,
+        "text_acc": 0.5989445910290238,
+        "fused_acc": 0.5857519788918206,
+        "fused_asr_acc": 0.5277044854881267,
+        "fused_wF1": 0.5760419272544959
+      },
+      {
+        "Speaker": "Joey",
+        "n": 411,
+        "share": 0.15747126436781608,
+        "text_acc": 0.6253041362530414,
+        "fused_acc": 0.656934306569343,
+        "fused_asr_acc": 0.5742092457420924,
+        "fused_wF1": 0.6562829710013514
+      },
+      {
+        "Speaker": "Monica",
+        "n": 346,
+        "share": 0.13256704980842912,
+        "text_acc": 0.5751445086705202,
+        "fused_acc": 0.5838150289017341,
+        "fused_asr_acc": 0.5057803468208093,
+        "fused_wF1": 0.576776999600869
+      },
+      {
+        "Speaker": "Phoebe",
+        "n": 291,
+        "share": 0.11149425287356322,
+        "text_acc": 0.6116838487972509,
+        "fused_acc": 0.6116838487972509,
+        "fused_asr_acc": 0.5017182130584192,
+        "fused_wF1": 0.6015297648693041
+      },
+      {
+        "Speaker": "Rachel",
+        "n": 356,
+        "share": 0.1363984674329502,
+        "text_acc": 0.6320224719101124,
+        "fused_acc": 0.6179775280898876,
+        "fused_asr_acc": 0.5168539325842697,
+        "fused_wF1": 0.6112611626232094
+      },
+      {
+        "Speaker": "Ross",
+        "n": 373,
+        "share": 0.142911877394636,
+        "text_acc": 0.6541554959785523,
+        "fused_acc": 0.6514745308310992,
+        "fused_asr_acc": 0.5683646112600537,
+        "fused_wF1": 0.6390738826152503
+      },
+      {
+        "Speaker": "other",
+        "n": 454,
+        "share": 0.1739463601532567,
+        "text_acc": 0.6475770925110133,
+        "fused_acc": 0.6762114537444934,
+        "fused_asr_acc": 0.6365638766519823,
+        "fused_wF1": 0.6731187197625458
+      }
+    ],
+    "asr_wer": [
+      {
+        "Whisper word error rate on the clip": "0 (exact)",
+        "n": 816,
+        "share": 0.31264367816091954,
+        "text_acc": 0.6531862745098039,
+        "fused_acc": 0.6654411764705882,
+        "fused_asr_acc": 0.5943627450980392,
+        "fused_wF1": 0.661074454261111
+      },
+      {
+        "Whisper word error rate on the clip": "0-25%",
+        "n": 709,
+        "share": 0.27164750957854406,
+        "text_acc": 0.5768688293370945,
+        "fused_acc": 0.5980253878702397,
+        "fused_asr_acc": 0.5811001410437235,
+        "fused_wF1": 0.5909983994398211
+      },
+      {
+        "Whisper word error rate on the clip": "25-50%",
+        "n": 426,
+        "share": 0.1632183908045977,
+        "text_acc": 0.5915492957746479,
+        "fused_acc": 0.57981220657277,
+        "fused_asr_acc": 0.5187793427230047,
+        "fused_wF1": 0.5661724209999259
+      },
+      {
+        "Whisper word error rate on the clip": ">50%",
+        "n": 659,
+        "share": 0.2524904214559387,
+        "text_acc": 0.6525037936267072,
+        "fused_acc": 0.6494688922610015,
+        "fused_asr_acc": 0.49165402124430957,
+        "fused_wF1": 0.6417053921786736
+      }
+    ],
+    "audio_flip": [
+      {
+        "Did audio change the text-only prediction?": "audio changed prediction",
+        "n": 452,
+        "share": 0.1731800766283525,
+        "text_acc": 0.3252212389380531,
+        "fused_acc": 0.36504424778761063,
+        "fused_asr_acc": 0.37168141592920356,
+        "fused_wF1": 0.3721844866512486
+      },
+      {
+        "Did audio change the text-only prediction?": "same as text-only",
+        "n": 2158,
+        "share": 0.8268199233716476,
+        "text_acc": 0.6844300278035218,
+        "fused_acc": 0.6844300278035218,
+        "fused_asr_acc": 0.5903614457831325,
+        "fused_wF1": 0.673058763180387
+      }
+    ]
+  }
+}

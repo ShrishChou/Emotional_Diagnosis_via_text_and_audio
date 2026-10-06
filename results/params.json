@@ -1,0 +1,36 @@
+{
+  "components": {
+    "text_encoder": {
+      "source": "roberta-base",
+      "params": 124055040
+    },
+    "audio_encoder": {
+      "source": "microsoft/wavlm-base-plus",
+      "params": 94381936
+    },
+    "text_only_head": {
+      "source": "checkpoints/text_head.pt",
+      "params": 200199
+    },
+    "fused_head": {
+      "source": "checkpoints/fused_head.pt",
+      "params": 398356
+    },
+    "asr": {
+      "source": "openai/whisper-small",
+      "params": 241734912
+    },
+    "reply_llm": {
+      "source": "Qwen/Qwen2.5-1.5B-Instruct",
+      "params": 1543714304
+    },
+    "tts": {
+      "source": "hexgrad/Kokoro-82M",
+      "params": 81810022
+    }
+  },
+  "total": 2086294769,
+  "limit": 6000000000,
+  "fraction_of_limit": 0.3477,
+  "note": "Total parameters (not trainable or active). ASR runs only when no transcript is given, and TTS only when the chat page is not muted; both are included in the total. No VAD (push-to-talk instead)."
+}

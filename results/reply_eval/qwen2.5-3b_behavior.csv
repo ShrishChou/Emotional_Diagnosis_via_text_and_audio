@@ -1,0 +1,51 @@
+clip,gold,predicted,transcript,reply,first_token_ms,total_ms,sentences,ends_cleanly,emotion_word,announces_feeling
+dia22_utt8,sadness,neutral,"Because of the weekend, we had a fight.","Weekends can be tough, but sometimes they're just the right time to have a deep talk. How was your fight?",583.0,2041.2,2,True,False,False
+dia183_utt7,neutral,neutral,"Y'know, there are two people who could put your picture up there.","Oh, really? Who are they?",599.1,929.9,2,True,False,False
+dia47_utt6,sadness,neutral,Yeah but we won't be able to like get up in the middle of the night and have those long talks about our feelings and the future.,"I know, it won't be the same without midnight chats. But we can still catch up whenever we're both home.",600.0,2187.5,2,True,False,False
+dia202_utt5,joy,joy,"Yeah, we ended up spending the day together and had such a great time!",That sounds amazing! What did you do that was so fun?,516.8,1236.6,2,True,False,False
+dia52_utt1,disgust,neutral,"To tape the game? You do this every time Ross, you're","Yeah, it’s a bit of a habit, but I guess it's easier than driving all the way now, isn't it?",604.3,2247.6,1,True,False,False
+dia54_utt3,anger,anger,"Fine, I'm mentally unstable.",I see. It's important to address these issues carefully.,606.3,1261.7,2,True,False,False
+dia244_utt0,neutral,anger,"Phoebe, she doesn't know that you sneak out every night, she doesn't know that you sneak back every morning, and she doesn't know that you've been living with your Grandmother's for a week now.",I see. It sounds like there might be some tension.,580.1,1227.1,2,True,False,False
+dia102_utt5,sadness,sadness,"Well I'm sorry, I thought you said it was okay.",It's okay to feel that way sometimes. We're here if you need to talk though.,647.3,1701.5,2,True,False,False
+dia238_utt1,sadness,joy,"Well, that doesn't mean she can't look nice!","That's true, sometimes appearances can be deceiving. What do you think about her outfit?",599.7,1771.9,2,True,False,False
+dia232_utt5,joy,joy,I don't care! I wanna meet this guy who's the best sex she ever had!,"Sounds like you're ready for a change! What's his name, and where are you meeting him?",589.6,1823.7,2,True,False,False
+dia41_utt2,anger,sadness,I can't believe it! He still hasn't called.,Sounds like he's been busy. How are you feeling about it?,593.4,1430.0,2,True,False,False
+dia231_utt11,disgust,sadness,"That's horrible! Well, you did the right thing man.","Thanks, sometimes tough decisions have to be made. How are you feeling about it now?",651.5,1700.2,2,True,False,False
+dia229_utt9,joy,disgust,"Okay.  God y'know, if someone told me a week ago that I would be peeing in Joey Tribbiani's apartment",It’s always better to be prepared. Is everything alright?,679.1,1270.4,2,True,False,False
+dia99_utt9,fear,joy,"Noo!  Oh, it's okay, it's okay, baby, baby, baby.","Oh, Chandler seems to have some strong opinions. Joey sure knows how to comfort his friend.",589.5,1630.1,2,True,False,False
+dia162_utt0,joy,anger,"Ooh! I'm sorry! I think, I THINK, that may have missed the table!","No worries at all, we all make mistakes. Did you see where the next table might be?",525.9,1699.0,2,True,False,False
+dia61_utt2,surprise,surprise,"Like you, I don't even know where you work?","Oh, I see. It must have come out accidentally.",688.6,1299.8,2,True,False,False
+dia73_utt9,neutral,neutral,I totally don't know what you're talking about.,"Oh, I see. Maybe I should rephrase that.",676.4,1264.0,2,True,False,False
+dia169_utt2,anger,anger,You can't marry him!,It seems like a serious decision. Maybe we can all sit down and discuss it further?,534.2,1572.3,2,True,False,False
+dia123_utt2,disgust,anger,"No! No-no! He is totally incompetent. I called the chef who recommended him to me. He said, ""Ha-ha! Gotcha!""","Oh, I see. Sounds like he didn't meet expectations.",650.9,1298.9,2,True,False,False
+dia156_utt1,joy,sadness,"Oh uh, as it turns out, we can't do it. Monica has to work.","Oh, I see. That does change things.",598.6,1058.1,2,True,False,False
+dia36_utt0,neutral,neutral,C'mon up.,"Sure thing, where are you at?",530.7,1026.9,1,True,False,False
+dia239_utt2,surprise,surprise,"Jeez, man did you fall.. Hi! So ah, did ya, did-did-did ya fall high?","Haha, yeah, I guess I did. That was quite a surprise, wasn't it?",716.5,1770.8,2,True,False,False
+dia223_utt1,fear,fear,"I'm not worried, I'm uh, I'm fascinated.",Fascinated is a great reaction! What do you find fascinating about it?,721.4,1509.9,2,True,False,False
+dia32_utt8,surprise,surprise,"Oh, what? What was it?","Oh, they called us the ""Tripletts"". It was a funny way to remember all three of us together.",663.4,2042.9,2,True,False,False
+dia95_utt10,neutral,neutral,No I'm not.,"Okay, no pressure then. You're doing fine, Phoebe.",605.4,1404.9,2,True,False,False
+dia70_utt9,disgust,anger,"What do you think you're gonna do, have sex with her right here    on my couch?",It sounds like there might be some tension between you and Ross. Is everything alright?,531.5,1517.0,2,True,False,False
+dia222_utt12,anger,anger,"And then you realised if you  bitched about it, then you  would stop cooking, and you  would have to make your famous baked potato and Diet Coke.",It sounds like you found a way to keep the good times rolling. Sometimes it takes a little reminder to stick to your strengths.,594.1,2169.3,2,True,False,False
+dia38_utt1,joy,joy,"Awww, one of my students got an audition. I'm so proud.",That's amazing! What role are they auditioning for?,600.4,1193.3,2,True,False,False
+dia97_utt8,fear,fear,Uh-oh!,Sounds like there might be some unexpected news. How can I help?,605.6,1398.7,2,True,False,False
+dia170_utt1,surprise,joy,"Ohh, let me see it! Let me see your hand!","Oh wow, that's exciting! Show me your hand, I can't wait!",525.7,1512.5,2,True,False,False
+dia195_utt0,fear,fear,"Okay look, don't...don't be mad okay?","I won't be mad, take your time. What's going on?",533.8,1452.5,2,True,False,False
+dia262_utt3,surprise,surprise,Wow! You're a lot sturdier that Chandler. He crumpled like a piece of paper. So how was you're trip?,"Hehe, thanks! My trip was great, I skated all over Europe.",707.3,1571.4,2,True,False,False
+dia120_utt9,disgust,neutral,No.,"Got it, no worries. Sometimes less is more too.",532.3,1192.2,2,True,False,False
+dia230_utt8,disgust,surprise,Ewww!,"Oh no, what happened? Did you eat something yucky?",536.1,1268.0,2,True,False,False
+dia202_utt1,joy,joy,Hey!,"Hey there! Just catching up, what have you been up to?",547.3,1347.9,2,True,False,False
+dia95_utt17,fear,neutral,"Umm, see, I was thinking maybe you two could switch apartments because Phoebe's more our kind of people.","Ah, switching apartments sounds like a good idea. Maybe we can discuss that further later.",624.5,1623.1,2,True,False,False
+dia100_utt19,sadness,anger,"Leslie, now would be a",I think Leslie might be running late. Want me to check if you have an alternate contact number?,537.2,1725.8,2,True,False,False
+dia137_utt12,surprise,surprise,After she gave me that big speech?!,"Oh wow, what did she say that surprised you so much?",525.5,1327.7,1,True,False,False
+dia93_utt15,neutral,neutral,"I-I-I saw you on stage talking to that beautiful woman, y'know Sarah?","Oh, seeing you there must have been quite the sight. Did you get a chance to chat afterwards?",694.7,1883.4,2,True,False,False
+dia5_utt0,anger,neutral,You're coming on to the entire room!  I'm Chandler.,"Oh, Chandler! I didn't mean to make that assumption.",614.6,1277.6,2,True,False,False
+dia57_utt5,disgust,neutral,But you will always be the guy who peed on me.,"Oh, I'm sorry to hear that happened. Sometimes we just say things without thinking.",675.4,1670.8,2,True,False,False
+dia199_utt7,sadness,sadness,I don't think he's the one I'm sad about.,I see. Sometimes we just need space after a breakup.,614.5,1278.2,2,True,False,False
+dia139_utt3,joy,joy,Hi Jill!,Hi Rachel! What brings you here today?,551.5,1015.2,2,True,False,False
+dia98_utt8,anger,neutral,Could we talk about this later?,"Sure thing, let's save this for another time when we're both feeling more relaxed.",529.7,1649.0,1,True,False,False
+dia113_utt4,fear,fear,No-no! Don't do it! Don't!,"Take your time, let's talk about this calmly. You're safe here.",532.5,1470.3,2,True,False,False
+dia215_utt1,neutral,neutral,"July. Umm,","Of course, let's find that July flight to Minsk! What time works best for you?",564.0,1755.7,2,True,False,False
+dia250_utt0,fear,sadness,"Well, I y'know, I was just, umm, I was just thinking and hoping, that umm, maybe you'd want to get back together?",Those are big feelings. Are you ready to have this conversation?,606.3,1339.2,2,True,False,False
+dia231_utt9,fear,neutral,"Okay, good, good, good, 'cause, good, 'cause I was kinda having second thoughts too.","It sounds like you made the right decision. Second thoughts are common, but doing what's best for Yasmine is important.",597.1,2161.1,2,True,False,False
+dia96_utt3,disgust,disgust,"Oh my God. Okay, go into the bathroom, use whatever you want, just don't ever tell me what you did in there.","Got it, no pressure. Just go when you're ready—no need to rush.",597.4,1662.6,2,True,False,False
+dia109_utt3,neutral,neutral,That's OK.,"No problem, sometimes change of scenery is nice too.",593.4,1252.2,1,True,False,False
