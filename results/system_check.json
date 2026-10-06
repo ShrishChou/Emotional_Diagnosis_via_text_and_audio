@@ -1,7 +1,6 @@
 {
   "summary": {
-    "PASS": 30,
-    "FAIL": 1,
+    "PASS": 31,
     "INFO": 1
   },
   "checks": [
@@ -69,7 +68,7 @@
       "section": "A. Requirements",
       "check": "NOTES.md logs deviations; TODO(Shrish) markers present",
       "status": "PASS",
-      "detail": "NOTES.md 195 lines; 6 TODO(Shrish) markers"
+      "detail": "NOTES.md 223 lines; 7 TODO(Shrish) markers"
     },
     {
       "section": "A. Requirements",
@@ -81,13 +80,13 @@
       "section": "A. Requirements",
       "check": "README numbers trace to results/",
       "status": "PASS",
-      "detail": "287/294 numbers found in results/ or checkpoints/meta.json; not found (review by hand: derived or stale): ['1008.1', '136.9', '212.3', '231.1', '336.4', '723.8', '80.4']"
+      "detail": "293/299 numbers found in results/ or checkpoints/meta.json; not found (review by hand: derived or stale): ['0.014', '2507']"
     },
     {
       "section": "A. Requirements",
       "check": "Work is committed (a fresh clone reproduces it)",
-      "status": "FAIL",
-      "detail": "0 commits; nothing is committed yet, so a clone would be empty"
+      "status": "PASS",
+      "detail": "1 commits"
     },
     {
       "section": "B. Model behavior",
@@ -165,7 +164,7 @@
       "section": "B. Model behavior",
       "check": "Speech output: every sentence of the reply is spoken (offline)",
       "status": "PASS",
-      "detail": "2 sentences, 4.4 s of audio, first ready 705 ms after the reply started; spoken text equals written text: True"
+      "detail": "2 sentences, 4.4 s of audio, first ready 706 ms after the reply started; spoken text equals written text: True"
     },
     {
       "section": "B. Model behavior",
@@ -177,7 +176,7 @@
       "section": "B. Model behavior",
       "check": "Warm state latency (voice, typed)",
       "status": "INFO",
-      "detail": "voice p50 41 / p95 89 ms; typed p50 8 / p95 10 ms (back to back; see 12_idle_latency for gaps)"
+      "detail": "voice p50 40 / p95 87 ms; typed p50 8 / p95 10 ms (back to back; see 12_idle_latency for gaps)"
     },
     {
       "section": "B. Model behavior",
