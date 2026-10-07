@@ -269,3 +269,16 @@ entries keep the names used at the time:
   column excludes the 82M Kokoro model (noted in the README).
 - EMODE facts in the README come from its public README (datasets, 5 classes, CNN on
   log-mels, 2 s windows, no published metrics, distillation not yet in the repo).
+
+## Conversation mood and final README
+
+- The face no longer resets to the resting smile after each reply. `Face.respond` pulls a
+  persistent mood toward that reply's face by `0.6 × confidence`; the mood fades to rest
+  with a 60 s half-life (`MOOD_HALF_LIFE_S` in `app/web/face.js`), reactions blend from the
+  mood instead of from rest, and "New chat" resets it. Checked in headless Chrome: after a
+  sad message (sadness 0.48, so the "careful" mood) the mood held and faded from 27% to 21%
+  over 21 s, matching the half-life.
+- README rewritten shorter for submission: no time section, a use-cases section, the
+  streaming-sentiment and content-prediction ideas under "With more time". The license TODOs
+  were resolved: WavLM is released in microsoft/unilm under MIT (checked the repository's
+  LICENSE); espeak-ng is GPL-3.0, stated as such.
