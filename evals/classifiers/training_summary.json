@@ -1,0 +1,118 @@
+{
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "selected_text_variant": "text_ctx",
+  "models": {
+    "text": {
+      "input": {
+        "text": "text",
+        "audio": false
+      },
+      "dev_weighted_f1_per_seed": [
+        0.5885389062599055,
+        0.5944346578594123,
+        0.596322816576788
+      ],
+      "best_epoch_per_seed": [
+        5,
+        8,
+        8
+      ],
+      "saved_seed": 2
+    },
+    "text_ctx": {
+      "input": {
+        "text": "text_ctx",
+        "audio": false
+      },
+      "dev_weighted_f1_per_seed": [
+        0.5906555937275451,
+        0.6006196876740357,
+        0.5994949065803676
+      ],
+      "best_epoch_per_seed": [
+        2,
+        5,
+        8
+      ],
+      "saved_seed": 1
+    },
+    "audio": {
+      "input": {
+        "text": null,
+        "audio": true
+      },
+      "dev_weighted_f1_per_seed": [
+        0.4829181147035895,
+        0.4690904093615826,
+        0.47339262491131556
+      ],
+      "best_epoch_per_seed": [
+        8,
+        8,
+        8
+      ],
+      "saved_seed": 0
+    },
+    "fused": {
+      "input": {
+        "text": "text_ctx",
+        "audio": true
+      },
+      "dev_weighted_f1_per_seed": [
+        0.6116181281421055,
+        0.6100129596883479,
+        0.6140202895042322
+      ],
+      "best_epoch_per_seed": [
+        13,
+        12,
+        8
+      ],
+      "saved_seed": 2
+    },
+    "fused_utt": {
+      "input": {
+        "text": "text",
+        "audio": true
+      },
+      "dev_weighted_f1_per_seed": [
+        0.6001262324301496,
+        0.597959445476272,
+        0.6020340789156742
+      ],
+      "best_epoch_per_seed": [
+        6,
+        3,
+        4
+      ],
+      "saved_seed": 2
+    },
+    "late_fusion": {
+      "input": "mean of text_ctx and audio probabilities",
+      "dev_weighted_f1_per_seed": [
+        0.5905464377245085,
+        0.5983414203955,
+        0.596664316162292
+      ]
+    },
+    "logreg": {
+      "input": "utterance embedding, sklearn LogisticRegression"
+    }
+  },
+  "calibration_dev": {
+    "fused": {
+      "temperature": 1.2734817266464233,
+      "dev_ece_before": 0.05488224362530865,
+      "dev_ece_after": 0.03055026444071896
+    },
+    "text_only": {
+      "temperature": 1.013177752494812,
+      "dev_ece_before": 0.02970570858420017,
+      "dev_ece_after": 0.03373883242318777
+    }
+  }
+}

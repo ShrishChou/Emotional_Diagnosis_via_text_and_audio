@@ -1,6 +1,6 @@
 """Local reply LLM (Qwen Instruct): prompt construction, decoding constraints, streaming.
 
-Two reply styles (compared in scripts/06_response_samples.py):
+Two reply styles (compared in evaluation/07_compare_reply_models.py):
 
   baseline  the first version: the emotion label and confidence go into the prompt,
             with an instruction not to name the emotion. Sampling T=0.7, 60 tokens.
@@ -14,9 +14,15 @@ from dataclasses import dataclass
 from threading import Thread
 
 import torch
-from transformers import (AutoModelForCausalLM, AutoTokenizer, LogitsProcessor,
-                          LogitsProcessorList, StoppingCriteria, StoppingCriteriaList,
-                          TextIteratorStreamer)
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    LogitsProcessor,
+    LogitsProcessorList,
+    StoppingCriteria,
+    StoppingCriteriaList,
+    TextIteratorStreamer,
+)
 
 from config import CFG
 from src.reply_checks import BANNED_EMOTION_WORDS, sentence_ends
@@ -109,7 +115,8 @@ def behavior_user_message(state: dict, context: str = "", use_emotion: bool = Tr
 FEW_SHOT = [
     ({"transcript": "I've been on hold with the bank for two hours and they just hung up on me.",
       "emotion": "anger", "confidence": 0.8},
-     "Two hours and then a dropped call is a lot to put up with. Want me to help you find a direct number to call back?"),
+     "Two hours and then a dropped call is a lot to put up with. "
+     "Want me to help you find a direct number to call back?"),
     ({"transcript": "We got the apartment! They called this morning.", "emotion": "joy", "confidence": 0.9},
      "That's fantastic news, congratulations! When do you get the keys?"),
     ({"transcript": "I don't really feel like going out tonight.", "emotion": "sadness", "confidence": 0.7},

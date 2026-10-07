@@ -7,6 +7,8 @@ between text-only, audio-only and fused is the input:
   text  [B, 768]
   inputs present are concatenated -> LayerNorm -> Linear(256) -> GELU -> Dropout -> Linear(7)
 """
+import json
+
 import torch
 import torch.nn as nn
 
@@ -58,6 +60,7 @@ class EmotionHead(nn.Module):
 
 
 def save_head(head: EmotionHead, path, extra: dict | None = None) -> None:
+    """Save the architecture, the weights and any extra fields (text feature, seed, temperature)."""
     torch.save({"config": head.config(), "state_dict": head.state_dict(), **(extra or {})}, path)
 
 
@@ -66,3 +69,13 @@ def load_head(path, device: str = "cpu") -> tuple[EmotionHead, dict]:
     head = EmotionHead(**ckpt["config"]).to(device).eval()
     head.load_state_dict(ckpt["state_dict"])
     return head, ckpt
+
+
+def load_deployed(device: str = "cpu") -> dict:
+    """The two heads the app uses, as named in models/meta.json:
+    {"text_only": (head, ckpt), "fused": (head, ckpt), "meta": {...}}.
+    Each ckpt holds "text_key" (which text feature it reads) and "temperature"."""
+    meta = json.loads((CFG.models_dir / "meta.json").read_text())
+    out = {role: load_head(CFG.models_dir / name, device) for role, name in meta["deployed"].items()}
+    out["meta"] = meta
+    return out

@@ -3,6 +3,20 @@
 Running log kept while building, in the order things happened. Every fallback
 the plan allows and every place I deviated from it is listed here.
 
+**Old file names.** The repository was reorganized at the end (last section). Earlier
+entries keep the names used at the time:
+
+| Old | Now |
+| --- | --- |
+| `scripts/00_check_env.py`, `01_prepare_meld.py`, `02_extract_features.py`, `03_train_eval.py` | `training/01_check_environment.py`, `02_prepare_meld.py`, `03_extract_features.py`, `04_train_classifiers.py` (+ `evaluation/01_compare_classifiers.py`) |
+| `scripts/04_count_params.py`, `05_bench_latency.py`, `12_idle_latency.py` | `evaluation/04_count_parameters.py`, `05_benchmark_latency.py`, `06_idle_latency.py` |
+| `scripts/06_response_samples.py`, `08_blind_review.py` | `evaluation/07_compare_reply_models.py`, `08_blind_reply_review.py` |
+| `scripts/07_asr_eval.py`, `11_asr_matched_training.py` | `evaluation/02_asr_transcripts.py`, `09_asr_matched_training.py` |
+| `scripts/09_error_analysis.py`, `10_improvement_experiments.py`, `13_system_check.py` | `evaluation/03_analyze_errors.py`, `10_train_on_failures.py`, `11_system_check.py` |
+| `face_server.py`, `face/` | `app/server.py`, `app/web/` |
+| `checkpoints/text_head.pt`, `fused_head.pt` | `models/text_ctx.pt`, `models/fused.pt` (+ the other heads; `models/meta.json` names the deployed two) |
+| `results/` | `evals/` (by topic: classifiers, struggles, asr, replies, system, experiments, logs) |
+
 ## Environment
 
 - Hardware: Apple M5, 10 cores, 24 GB unified memory, no CUDA. The plan's table
@@ -221,3 +235,37 @@ the plan allows and every place I deviated from it is listed here.
 - `results/test_predictions.csv` and `results/asr_transcripts_test.csv` contain MELD test
   transcripts alongside the predictions. MELD is GPL-3.0, which permits redistribution;
   it is credited in the README. Raw audio and features are not committed.
+
+## Reorganization and QA pass
+
+- Layout: `app/` (character), `training/` (steps 01-04), `evaluation/` (01-11), `models/`
+  (every trained head), `evals/` (every result, by topic, with an index), `docs/images/`.
+- Shared code moved into `src/training.py` (training loop, metrics, calibration) and
+  `src/data.py` (dialogue context, word error rate). Two experiments used to import the
+  old training script by file path; they now import `src.training`.
+- The training script now only trains: it saves every head (best-on-dev seed) to `models/`
+  and every model's dev and test probabilities to `evals/classifiers/predictions.npz`.
+  `evaluation/01_compare_classifiers.py` computes all metrics and charts from those.
+  Verified: the retrained deployed heads are bit-identical to the old checkpoints (weights,
+  temperatures, seeds), and every metric in the old `metrics.json` reproduces exactly.
+- New metrics: macro and weighted precision and recall for every model, per-emotion
+  precision and recall, a confusion matrix per model, test ECE for the text-only head.
+  The logistic-regression baseline now also has a dev score (0.545).
+- `evals/struggles/analytics.md` is generated with every number computed in the script.
+  The text-only probabilities there are now temperature-scaled, so one example's text-only
+  confidence reads 0.50 instead of 0.51; predictions are unchanged.
+- Re-ran to verify after the moves: data preparation (byte-identical manifests), training,
+  the comparison, the Whisper evaluation (identical scores), Whisper-matched training and
+  train-on-failures (identical tables), the error analysis, the parameter count (identical
+  total), the CLI demo (same reply), and the system check against the running app (all pass).
+  The latency, idle-latency and reply-model benchmarks were not re-run (they would only add
+  run-to-run timing noise); their scripts were import-checked.
+- Lint: `ruff check --select E,F,W,B,I --ignore B905,E402` passes. E402 (imports after the
+  offline environment variables) is intentional: they must be set before transformers loads.
+- The system check's offline rule is now automatic: every script that loads a model must
+  force offline mode, except the setup step. It found that `training/03_extract_features.py`
+  lacked it; added.
+- The reply-model comparison ran before speech output was added, so its "pipeline total"
+  column excludes the 82M Kokoro model (noted in the README).
+- EMODE facts in the README come from its public README (datasets, 5 classes, CNN on
+  log-mels, 2 s windows, no published metrics, distillation not yet in the repo).

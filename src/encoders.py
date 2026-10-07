@@ -4,8 +4,7 @@ All run locally in eval mode with gradients off. None of them was trained on
 MELD or on any emotion labels (they are general-purpose checkpoints).
 """
 import torch
-from transformers import (AutoModel, AutoTokenizer, WavLMModel,
-                          WhisperForConditionalGeneration, WhisperProcessor)
+from transformers import AutoModel, AutoTokenizer, WavLMModel, WhisperForConditionalGeneration, WhisperProcessor
 
 from config import CFG
 
@@ -108,3 +107,10 @@ class ASR:
         feats = self.proc(raw_wav, sampling_rate=CFG.sample_rate, return_tensors="pt").input_features
         ids = self.model.generate(feats.to(self.device, self.dtype), language="en", task="transcribe")
         return self.proc.batch_decode(ids, skip_special_tokens=True)[0].strip()
+
+    @torch.no_grad()
+    def transcribe_batch(self, raw_wavs: list) -> list[str]:
+        """Several raw 16 kHz clips at once (used to transcribe whole MELD splits)."""
+        feats = self.proc(raw_wavs, sampling_rate=CFG.sample_rate, return_tensors="pt").input_features
+        ids = self.model.generate(feats.to(self.device, self.dtype), language="en", task="transcribe")
+        return [t.strip() for t in self.proc.batch_decode(ids, skip_special_tokens=True)]

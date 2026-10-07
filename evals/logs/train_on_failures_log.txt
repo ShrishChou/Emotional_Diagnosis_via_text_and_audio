@@ -1,0 +1,31 @@
+baseline
+out-of-fold predictions on train (5 folds x 3 seeds)
+hard_x2
+hard_x3
+focal_g1
+focal_g2
+# Training harder on the failures
+
+Variants of the deployed fused model, 3 seeds each. Failures were found on train (out-of-fold); every choice was made on dev. From `evaluation/10_train_on_failures.py`.
+
+| Variant | Dev weighted F1 | Test weighted F1 | Test macro F1 | Test accuracy |
+| --- | ---: | ---: | ---: | ---: |
+| baseline | 0.612 ± 0.002 | 0.614 ± 0.006 | 0.441 ± 0.008 | 0.619 ± 0.007 |
+| hard_x2 | 0.596 ± 0.007 | 0.608 ± 0.004 | 0.438 ± 0.009 | 0.599 ± 0.003 |
+| hard_x3 | 0.582 ± 0.004 | 0.592 ± 0.004 | 0.425 ± 0.008 | 0.577 ± 0.002 |
+| focal_g1 | 0.606 ± 0.001 | 0.612 ± 0.007 | 0.437 ± 0.006 | 0.613 ± 0.010 |
+| focal_g2 | 0.608 ± 0.003 | 0.617 ± 0.006 | 0.443 ± 0.009 | 0.611 ± 0.006 |
+| neutral_offset (offset 0.0) | 0.612 ± 0.002 | 0.614 ± 0.006 | 0.441 ± 0.008 | 0.619 ± 0.007 |
+
+Per-emotion test F1 (mean over seeds):
+
+| Variant | anger | disgust | fear | joy | neutral | sadness | surprise |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| baseline | 0.472 | 0.181 | 0.213 | 0.559 | 0.772 | 0.364 | 0.525 |
+| hard_x2 | 0.483 | 0.185 | 0.170 | 0.573 | 0.749 | 0.360 | 0.545 |
+| hard_x3 | 0.473 | 0.195 | 0.151 | 0.537 | 0.735 | 0.360 | 0.524 |
+| focal_g1 | 0.487 | 0.167 | 0.175 | 0.562 | 0.761 | 0.370 | 0.538 |
+| focal_g2 | 0.487 | 0.164 | 0.184 | 0.572 | 0.764 | 0.381 | 0.548 |
+| neutral_offset | 0.472 | 0.181 | 0.213 | 0.559 | 0.772 | 0.364 | 0.525 |
+
+Label-noise probe: out-of-fold train error rate 38%; 29% of train is wrong in every fold of every seed. By emotion: anger 44%, disgust 72%, fear 68%, joy 38%, neutral 13%, sadness 58%, surprise 33%.

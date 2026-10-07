@@ -1,0 +1,58 @@
+== loading models on mps ==
+cold load: 8.8 s  {"text_encoder": 0.84, "audio_encoder": 0.67, "heads": 0.31, "llm": 6.94}
+warm-up pass (not timed below): 0.9 s
+
+== input ==
+audio: data/wav/test/dia113_utt10.wav
+context:
+  Chandler: I'm not a dropper!
+  Ross: It's really a uh-uh three person game, y'know?
+gold label (MELD annotation, for reference only): anger
+
+== JSON state (emitted before the reply) ==
+{
+  "utterance_id": "dia113_utt10",
+  "transcript": "It's throwing and catching!",
+  "transcript_source": "gold",
+  "emotion": "anger",
+  "probs": {
+    "anger": 0.7264,
+    "disgust": 0.0047,
+    "fear": 0.0012,
+    "joy": 0.1951,
+    "neutral": 0.0393,
+    "sadness": 0.0026,
+    "surprise": 0.0307
+  },
+  "confidence": 0.7264,
+  "text_only_emotion": "joy",
+  "audio_changed_prediction": true,
+  "modalities": [
+    "text",
+    "audio"
+  ],
+  "heard": true,
+  "latency_ms": {
+    "audio_load": 1.1,
+    "asr": 0.0,
+    "text_enc": 13.5,
+    "audio_enc": 50.6,
+    "heads": 1.6,
+    "state_total": 66.7
+  }
+}
+
+== reply (streamed) ==
+Gotcha, sounds like we need some practice. Let's work on it together.
+
+== latency (ms) ==
+{
+  "audio_load": 1.1,
+  "asr": 0.0,
+  "text_enc": 13.5,
+  "audio_enc": 50.6,
+  "heads": 1.6,
+  "state_total": 66.7,
+  "llm_first_token": 362.3,
+  "llm_total": 924.7
+}

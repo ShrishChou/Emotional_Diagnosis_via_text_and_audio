@@ -42,8 +42,8 @@ class Config:
     wav_dir: Path = ROOT / "data" / "wav"
     manifest_dir: Path = ROOT / "data" / "manifests"
     cache_dir: Path = ROOT / "cache"
-    ckpt_dir: Path = ROOT / "checkpoints"
-    results_dir: Path = ROOT / "results"
+    models_dir: Path = ROOT / "models"   # trained classifier heads + meta.json
+    evals_dir: Path = ROOT / "evals"     # every result, chart and report (see evals/README.md)
 
     # Models (all run locally)
     text_model: str = "roberta-base"
@@ -76,7 +76,7 @@ class Config:
     # Reply generation: prompt + decoding settings live in src/responder.py STYLES.
     reply_style: str = "behavior"
 
-    # Speech output (face_server.py; optional, the page can mute it)
+    # Speech output (app/server.py; optional, the page can mute it)
     tts_model: str = "hexgrad/Kokoro-82M"
     tts_voice: str = "af_heart"
 
@@ -85,6 +85,12 @@ class Config:
             self.llm_model = pick_llm(self.device)
         if self.device == "cpu" and self.audio_train_subsample is None:
             self.audio_train_subsample = 4000
+
+    def out(self, *parts: str) -> Path:
+        """A path under evals/, with its folder created: CFG.out("system", "latency.json")."""
+        path = self.evals_dir.joinpath(*parts)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        return path
 
     @property
     def llm_dtype(self):

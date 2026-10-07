@@ -1,0 +1,332 @@
+{
+  "summary": {
+    "PASS": 31,
+    "INFO": 1
+  },
+  "checks": [
+    {
+      "section": "A. Requirements",
+      "check": "Total parameters <= 6B",
+      "status": "PASS",
+      "detail": "2,086,294,769 (35% of the limit), 7 components counted in code"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "Speech model (TTS) is counted",
+      "status": "PASS",
+      "detail": "tts: 81,810,022 parameters (hexgrad/Kokoro-82M)"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "Counted LLM is the configured LLM",
+      "status": "PASS",
+      "detail": "params.json: Qwen/Qwen2.5-1.5B-Instruct; config: Qwen/Qwen2.5-1.5B-Instruct"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "Test weighted F1 for text, audio and fused",
+      "status": "PASS",
+      "detail": "{'text': 0.609, 'audio': 0.469, 'fused': 0.614}"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "Latency and hardware reports exist and agree",
+      "status": "PASS",
+      "detail": "device mps; state p50 45.8 ms, first token p50 205.4 ms"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "Latency was measured with the current reply setup",
+      "status": "PASS",
+      "detail": "latency.json: Qwen/Qwen2.5-1.5B-Instruct / behavior; config: Qwen/Qwen2.5-1.5B-Instruct / behavior"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "Demo trace shows a JSON state and a streamed reply",
+      "status": "PASS",
+      "detail": "evals/system/demo_trace.txt"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "Offline mode forced in every inference entry point",
+      "status": "PASS",
+      "detail": "10/10 files"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "No remote API on the inference path",
+      "status": "PASS",
+      "detail": "no HTTP client libraries in src/, demo.py, app/server.py; the app server binds to 127.0.0.1"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "Official MELD splits",
+      "status": "PASS",
+      "detail": "{'train': 9988, 'dev': 1108, 'test': 2610} (official CSVs: 9,989 / 1,109 / 2,610; 2 clips missing in MELD)"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "NOTES.md logs deviations; TODO(Shrish) markers present",
+      "status": "PASS",
+      "detail": "NOTES.md 271 lines; 5 TODO(Shrish) markers"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "Data and caches ignored; no model file over 50 MB",
+      "status": "PASS",
+      "detail": "big files: none"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "README numbers trace to evals/",
+      "status": "PASS",
+      "detail": "215/215 numbers found in evals/ or models/meta.json; not found (review by hand: derived or stale): []"
+    },
+    {
+      "section": "A. Requirements",
+      "check": "Work is committed (a fresh clone reproduces it)",
+      "status": "PASS",
+      "detail": "2 commits"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Live voice path matches the offline evaluation",
+      "status": "PASS",
+      "detail": "99.7% of 300 test utterances get the same emotion; confidence differs by median 0.0003, max 0.043 (offline features were batched and padded)"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Typed path matches the offline text-only head",
+      "status": "PASS",
+      "detail": "100.0% agreement on the same utterances"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Live accuracy equals offline accuracy on the sample",
+      "status": "PASS",
+      "detail": "live 0.620 vs offline 0.623; typed (words only) 0.620"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Confidence is calibrated (fused, test)",
+      "status": "PASS",
+      "detail": "bins with >= 20 utterances, mean confidence -> accuracy: 0.2-0.3: 0.27->0.30 (n=111); 0.3-0.4: 0.35->0.36 (n=363); 0.4-0.5: 0.45->0.48 (n=436); 0.5-0.6: 0.55->0.59 (n=394); 0.6-0.7: 0.65->0.69 (n=357); 0.7-0.8: 0.75->0.73 (n=336); 0.8-0.9: 0.85->0.86 (n=327); 0.9-1.0: 0.95->0.94 (n=284)"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Audio branch is live: swapping audio changes predictions",
+      "status": "PASS",
+      "detail": "same words, another clip's audio: prediction changed in 28/150 (19%); silence instead of the voice changed it in 81/150"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Swapped audio pulls toward the donor clip's emotion",
+      "status": "PASS",
+      "detail": "the donor's gold emotion gained probability in 109/150 (73%) swaps"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Edge cases: no crash, valid probabilities",
+      "status": "PASS",
+      "detail": "10/10 ran"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Edge cases: replies non-empty, <= 2 sentences, no banned words",
+      "status": "PASS",
+      "detail": "10/10 ok"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Silence / noise does not trigger a strong emotion",
+      "status": "PASS",
+      "detail": "silence 1 s: neutral (0.99); white noise 2 s: neutral (0.99)"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Empty transcript reports 'nothing heard' instead of guessing",
+      "status": "PASS",
+      "detail": "neutral (0.14); reply: Sorry, I didn't catch that. Could you say it again?"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Muted mic (live path) skips Whisper and reports nothing heard",
+      "status": "PASS",
+      "detail": "heard=False, asr 0.0 ms, transcript ''"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Silence gate never fires on real MELD speech",
+      "status": "PASS",
+      "detail": "3,718 dev + test clips; quietest raw RMS 0.0007, 1st percentile 0.0054, median 0.0296; gate 0.0005"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Speech output: every sentence of the reply is spoken (offline)",
+      "status": "PASS",
+      "detail": "2 sentences, 4.4 s of audio, first ready 1060 ms after the reply started; spoken text equals written text: True"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Deterministic state for the same input",
+      "status": "PASS",
+      "detail": "max probability difference 0.00000"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Warm state latency (voice, typed)",
+      "status": "INFO",
+      "detail": "voice p50 64 / p95 126 ms; typed p50 12 / p95 15 ms (back to back; see 06_idle_latency for gaps)"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Server /api/text: state, then tokens, then done",
+      "status": "PASS",
+      "detail": "11 events: state, 9 tokens, done"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Server /api/clip: state, then tokens, then done",
+      "status": "PASS",
+      "detail": "14 events: state, 12 tokens, done"
+    },
+    {
+      "section": "B. Model behavior",
+      "check": "Server rejects an empty message cleanly",
+      "status": "PASS",
+      "detail": "ValueError: empty message"
+    }
+  ],
+  "edge_cases": [
+    {
+      "case": "silence 1 s",
+      "emotion": "neutral",
+      "confidence": 0.9855,
+      "valid_probs": true,
+      "reply": "Hello! How can I assist you today?",
+      "reply_ok": true
+    },
+    {
+      "case": "white noise 2 s",
+      "emotion": "neutral",
+      "confidence": 0.993,
+      "valid_probs": true,
+      "reply": "Hello! How can I assist you today?",
+      "reply_ok": true
+    },
+    {
+      "case": "0.05 s of audio",
+      "emotion": "neutral",
+      "confidence": 0.9987,
+      "valid_probs": true,
+      "reply": "Hello! How can I assist you today?",
+      "reply_ok": true
+    },
+    {
+      "case": "25 s of audio (cropped to 15 s)",
+      "emotion": "joy",
+      "confidence": 0.4823,
+      "valid_probs": true,
+      "reply": "Got it. Have a good night.",
+      "reply_ok": true
+    },
+    {
+      "case": "clipped, very loud audio",
+      "emotion": "joy",
+      "confidence": 0.4999,
+      "valid_probs": true,
+      "reply": "Got it. Have a good night.",
+      "reply_ok": true
+    },
+    {
+      "case": "empty transcript",
+      "emotion": "neutral",
+      "confidence": 0.1429,
+      "valid_probs": true,
+      "reply": "Sorry, I didn't catch that. Could you say it again?",
+      "reply_ok": true
+    },
+    {
+      "case": "one character",
+      "emotion": "neutral",
+      "confidence": 0.7749,
+      "valid_probs": true,
+      "reply": "Gotcha. How can I assist you today?",
+      "reply_ok": true
+    },
+    {
+      "case": "300-word transcript",
+      "emotion": "neutral",
+      "confidence": 0.6501,
+      "valid_probs": true,
+      "reply": "Oh no, that must have been a bit overwhelming. Let\u2019s try another option instead.",
+      "reply_ok": true
+    },
+    {
+      "case": "non-English text",
+      "emotion": "neutral",
+      "confidence": 0.4913,
+      "valid_probs": true,
+      "reply": "I'm sorry, but I'm not sure where that is either. Let me look it up for you.",
+      "reply_ok": true
+    },
+    {
+      "case": "emoji only",
+      "emotion": "joy",
+      "confidence": 0.3487,
+      "valid_probs": true,
+      "reply": "Gotcha. How about we take our time and enjoy whatever's ahead?",
+      "reply_ok": true
+    }
+  ],
+  "reliability": [
+    {
+      "bin": "0.2-0.3",
+      "n": 111,
+      "mean_confidence": 0.2658963963963964,
+      "accuracy": 0.2972972972972973
+    },
+    {
+      "bin": "0.3-0.4",
+      "n": 363,
+      "mean_confidence": 0.35324132231404964,
+      "accuracy": 0.3581267217630854
+    },
+    {
+      "bin": "0.4-0.5",
+      "n": 436,
+      "mean_confidence": 0.44914839449541283,
+      "accuracy": 0.47706422018348627
+    },
+    {
+      "bin": "0.5-0.6",
+      "n": 394,
+      "mean_confidence": 0.5495243654822336,
+      "accuracy": 0.5913705583756346
+    },
+    {
+      "bin": "0.6-0.7",
+      "n": 357,
+      "mean_confidence": 0.6501002801120448,
+      "accuracy": 0.6918767507002801
+    },
+    {
+      "bin": "0.7-0.8",
+      "n": 336,
+      "mean_confidence": 0.7504005952380952,
+      "accuracy": 0.7261904761904762
+    },
+    {
+      "bin": "0.8-0.9",
+      "n": 327,
+      "mean_confidence": 0.8499972477064219,
+      "accuracy": 0.8562691131498471
+    },
+    {
+      "bin": "0.9-1.0",
+      "n": 284,
+      "mean_confidence": 0.9496137323943663,
+      "accuracy": 0.9401408450704225
+    }
+  ]
+}

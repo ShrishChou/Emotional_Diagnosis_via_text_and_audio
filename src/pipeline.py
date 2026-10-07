@@ -11,7 +11,7 @@ import torch.nn.functional as F
 from config import CFG, LABELS
 from src.audio import emode_normalize, read_raw
 from src.encoders import ASR, AudioEncoder, TextEncoder
-from src.fusion import load_head
+from src.fusion import load_deployed
 from src.reply_checks import sentence_ends
 from src.responder import Responder
 
@@ -43,8 +43,9 @@ class Pipeline:
 
         self.text_enc = timed("text_encoder", lambda: TextEncoder(device))
         self.audio_enc = timed("audio_encoder", lambda: AudioEncoder(device))
-        self.text_head, text_ckpt = timed("text_head", lambda: load_head(CFG.ckpt_dir / "text_head.pt", device))
-        self.fused_head, fused_ckpt = timed("fused_head", lambda: load_head(CFG.ckpt_dir / "fused_head.pt", device))
+        heads = timed("heads", lambda: load_deployed(device))   # models/meta.json names them
+        self.text_head, text_ckpt = heads["text_only"]
+        self.fused_head, fused_ckpt = heads["fused"]
         self.text_key = fused_ckpt["text_key"]  # "text" or "text_ctx", chosen on dev
         assert text_ckpt["text_key"] == self.text_key
         self.temperature = fused_ckpt["temperature"]
@@ -80,7 +81,7 @@ class Pipeline:
     def ping(self) -> float:
         """A tiny pass through each GPU model, to wake the GPU before a turn arrives.
         On Apple Silicon the first turn after a few seconds idle is several times slower
-        (see scripts/12_idle_latency.py); the face page calls this when the person
+        (see evaluation/06_idle_latency.py); the face page calls this when the person
         starts talking. Returns its duration in seconds."""
         t0 = time.perf_counter()
         self.audio_enc.encode([torch.zeros(CFG.sample_rate)])

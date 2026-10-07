@@ -8,7 +8,7 @@
 import os
 
 # Inference is local only: refuse any Hugging Face network access. Weights must
-# already be cached (scripts/00_check_env.py downloads them).
+# already be cached (training/01_check_environment.py downloads them).
 os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 os.environ.setdefault("TRANSFORMERS_VERBOSITY", "error")  # hide model load reports

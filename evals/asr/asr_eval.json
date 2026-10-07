@@ -1,0 +1,14 @@
+{
+  "n_clips": 2610,
+  "asr_model": "openai/whisper-small",
+  "wer": 0.3529,
+  "text_variant": "text_ctx",
+  "context_from": "Whisper transcripts of the previous two utterances",
+  "weighted_f1": {
+    "text_only_gold": 0.6169297462900335,
+    "text_only_asr": 0.5139730987888673,
+    "fused_gold": 0.6223889275428969,
+    "fused_asr": 0.5249814098324634
+  },
+  "note": "The deployed heads (one seed each), so the gold numbers match the saved models in evals/classifiers/metrics.json, not the 3-seed means."
+}
