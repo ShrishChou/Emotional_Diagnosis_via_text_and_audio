@@ -1,0 +1,78 @@
+{
+  "pairs_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "pairs_style": "behavior",
+  "rater": "single rater",
+  "date": "2026-10-06",
+  "order": [
+    "dia156_utt1",
+    "dia244_utt0",
+    "dia73_utt9",
+    "dia162_utt0",
+    "dia229_utt9",
+    "dia232_utt5",
+    "dia52_utt1",
+    "dia61_utt2",
+    "dia169_utt2",
+    "dia54_utt3",
+    "dia231_utt11",
+    "dia238_utt1",
+    "dia102_utt5",
+    "dia202_utt5",
+    "dia47_utt6",
+    "dia22_utt8",
+    "dia123_utt2",
+    "dia183_utt7",
+    "dia99_utt9",
+    "dia41_utt2"
+  ],
+  "emotion_is_a": {
+    "dia156_utt1": true,
+    "dia244_utt0": true,
+    "dia73_utt9": true,
+    "dia162_utt0": false,
+    "dia229_utt9": true,
+    "dia232_utt5": false,
+    "dia52_utt1": true,
+    "dia61_utt2": true,
+    "dia169_utt2": false,
+    "dia54_utt3": false,
+    "dia231_utt11": true,
+    "dia238_utt1": false,
+    "dia102_utt5": true,
+    "dia202_utt5": false,
+    "dia47_utt6": true,
+    "dia22_utt8": true,
+    "dia123_utt2": false,
+    "dia183_utt7": false,
+    "dia99_utt9": false,
+    "dia41_utt2": true
+  },
+  "answers": [
+    {
+      "clip": "dia156_utt1",
+      "key": "a",
+      "choice": "emotion"
+    },
+    {
+      "clip": "dia244_utt0",
+      "key": "b",
+      "choice": "no_emotion"
+    },
+    {
+      "clip": "dia73_utt9",
+      "key": "b",
+      "choice": "no_emotion"
+    },
+    {
+      "clip": "dia162_utt0",
+      "key": "b",
+      "choice": "emotion"
+    }
+  ],
+  "summary": {
+    "n_rated": 4,
+    "preferred_with_emotion": 2,
+    "preferred_without_emotion": 2,
+    "ties": 0
+  }
+}

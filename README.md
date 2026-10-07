@@ -14,7 +14,7 @@ laptop (Apple M5, 24 GB), within a 6B-parameter budget.
 | Face reacts after you stop talking | median **46 ms** (152 ms when Whisper transcribes you) |
 | Character starts speaking | median **752 ms** after you stop |
 | Size | 2,086,294,769 parameters, 35% of the 6B limit; peak memory 5.49 GB |
-| Verified | `evaluation/11_system_check.py`: every requirement and live-system check passes |
+| Verified | `evaluation/10_system_check.py`: every requirement and live-system check passes |
 
 ## Where this could be used
 
@@ -103,7 +103,8 @@ Design choices that matter:
 - **The reply model never sees an emotion word.** Each emotion becomes tone guidance, three
   short examples set the style, and two rules are enforced in decoding: stop after two
   sentences, never name the emotion. Result: 100% of replies within two sentences and none
-  naming an emotion, with the first token at a median 308 ms (`evals/replies/reply_compliance.md`).
+  naming an emotion, with the first token at a median 308 ms (`evals/replies/reply_compliance.md`;
+  the inputs there are sitcom lines, so this checks the rules and speed, not reply quality).
 - **Turn-level real time**: the emotion state is ready before the reply, so the face changes first.
 
 ## Results
@@ -170,7 +171,7 @@ Full analysis: **[evals/struggles/analytics.md](evals/struggles/analytics.md)**.
   cross-validation fold of every seed, many of them debatable ("No!" labeled disgust).
   Training harder on those failures made the model worse
   ([evals/experiments/train_on_failures.md](evals/experiments/train_on_failures.md)); RL or
-  DAgger do not fit single-utterance classification, but do fit the streaming idea below.
+  DAgger do not fit single-utterance classification, but do fit reacting while you speak (below).
 
 ## Prior work: EMODE, and what this project improves
 
@@ -192,20 +193,50 @@ distillation step. This project reuses its audio normalization (`emode_normalize
 EMODE's multi-corpus training targets robustness to recording conditions, which a single
 sitcom cannot give; it is the natural next voice branch.
 
-## With more time
+## Why the model is weak, and how to make it better
 
-1. **Real-time sentiment while you speak.** Run the emotion model on the audio and partial
-   transcript every half second, so the face reacts *during* the sentence (softening as your
-   voice drops, brightening as it lifts) instead of after it. When to commit to a reaction is
-   a sequential decision, trading accuracy against speed, and is exactly where DAgger fits,
-   with the full-utterance model as the expert.
-2. **Predicting what is being said.** A streaming transcript plus a language model can
-   anticipate how your sentence ends and what you mean, so the character reacts to the
-   content as it unfolds (a sympathetic look before the bad news is finished) and drafts its
-   reply early, cutting the pause after you stop.
-3. **Hands-free turn-taking** with voice activity detection, and letting you interrupt.
-4. **Better ears**: a stronger speech recognizer for live use, an EMODE-style multi-corpus
-   voice model, and fine-tuning the text encoder.
+MELD is a sitcom. Actors perform scripted lines to each other over a laugh track, and
+annotators labeled each line while watching the scene. That shapes what any model trained
+on it can learn:
+
+- **Performed, not felt.** Delivery is pitched for an audience; real people are subtler.
+- **Labels come from the whole scene.** Annotators saw faces, plot and the joke; this model
+  hears one line and the two before it, so some labels cannot be recovered from its inputs.
+  That is part of why fear and disgust stay low.
+- **One label per line.** A majority vote hides real disagreement between annotators, which
+  is why 29% of train is misclassified by every model in cross-validation.
+- **Few examples where it matters.** Fear and disgust have only a few hundred training lines each.
+- **Not the robot's audio.** Laugh tracks, music and studio microphones, not a room.
+
+With more time I would change the data and the targets before the model:
+
+1. **Train on natural conversational speech, from more than one corpus.** Add MSP-Podcast
+   (natural podcast speech with emotion labels) and IEMOCAP (two-person conversations, partly
+   improvised) to MELD, and hold one corpus out entirely to measure how well the model
+   transfers. EMODE's multi-corpus pooling was the first step in this direction.
+2. **Predict valence and arousal, not only seven categories.** Continuous "how positive" and
+   "how energetic" scores (MSP-Podcast and IEMOCAP both have them) avoid forcing a hard
+   choice between neighbors like anger and disgust, and drive the face directly (smile with
+   valence, eye openness with arousal).
+3. **Learn from disagreement instead of a single vote.** Train on soft labels (the share of
+   annotators choosing each emotion, from corpora that release individual votes) or with
+   label smoothing, so ambiguous lines stop being
+   counted as hard errors, and report agreement with annotators rather than exact match.
+4. **Close the gap to a real microphone.** Augment training audio with room reverberation,
+   background noise and distance, and continue WavLM's self-supervised pretraining on
+   unlabeled audio from the target microphone (no labels needed).
+5. **Fine-tune the encoders lightly** with small adapters (e.g. LoRA) instead of keeping them
+   frozen, and use a stronger speech recognizer: Whisper-small costs about 0.10 weighted F1,
+   the largest single loss measured here.
+6. **Evaluate with real people.** The honest test is people talking to the character and
+   saying whether it understood them. Consented, labeled clips from those sessions would also
+   be the best data for fine-tuning and recalibrating the model.
+
+For the character itself: run the emotion model on partial audio every half second so the
+face reacts *while* you speak (when to commit to a reaction is where DAgger fits, with the
+full-utterance model as the expert); predict how your sentence will end so it can react to
+the content as it unfolds and draft its reply early; and add voice activity detection for
+hands-free turns.
 
 ## Reproduce everything
 
@@ -224,18 +255,18 @@ python evaluation/02_asr_transcripts.py       # evals/asr/ (Whisper)
 python evaluation/03_analyze_errors.py        # evals/struggles/
 python evaluation/04_count_parameters.py      # evals/system/params.json
 python evaluation/05_benchmark_latency.py     # evals/system/latency.json
-python evaluation/11_system_check.py          # evals/system/system_check.md
+python evaluation/10_system_check.py          # evals/system/system_check.md
 ```
 
-Scripts 06-10 in `evaluation/` are the studies (idle latency, reply models, a blind reply
-review, Whisper-matched training, training on failures); [evals/README.md](evals/README.md)
+Scripts 06-09 in `evaluation/` are the studies (idle latency, reply models, Whisper-matched
+training, training on failures); [evals/README.md](evals/README.md)
 indexes every output. Training is deterministic: rerunning it reproduces `models/` bit for bit.
 
 ```
 app/          the character: server.py + web/ (chat page, SVG face)
 src/          the library: audio, encoders, fusion head, training, pipeline, replies, speech
 models/       trained emotion heads; meta.json names the two the app uses
-training/     steps 01-04             evaluation/   scripts 01-11
+training/     steps 01-04             evaluation/   scripts 01-10
 evals/        every result, by topic  docs/images/  screenshots
 demo.py       command-line demo       config.py     every setting in one place
 NOTES.md      every assumption, deviation and fallback, in order
@@ -247,10 +278,11 @@ NOTES.md      every assumption, deviation and fallback, in order
   microphone hears ordinary speech in ordinary rooms.
 - MELD labels are noisy and imbalanced, and fear and disgust have few examples.
 - Live speech goes through Whisper-small, which costs about 0.10 weighted F1.
-- Replies are checked against rules, not yet rated by people (`evaluation/08_blind_reply_review.py` is ready).
+- Replies are checked for rules and speed on sitcom lines; whether they are *good* replies can
+  only be judged by real people talking to the character, which this prototype has not had.
 - Measured on one machine (Apple M5); CUDA and CPU paths exist but were not run.
 - Left out by design: vision, fine-tuning the encoders or the LLM, and reacting before the
-  person finishes speaking (first item above).
+  person finishes speaking.
 
 ## Credits and licenses
 

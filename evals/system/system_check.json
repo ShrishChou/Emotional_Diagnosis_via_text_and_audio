@@ -68,7 +68,7 @@
       "section": "A. Requirements",
       "check": "NOTES.md logs deviations; TODO(Shrish) markers present",
       "status": "PASS",
-      "detail": "NOTES.md 271 lines; 5 TODO(Shrish) markers"
+      "detail": "NOTES.md 298 lines; 1 TODO(Shrish) markers"
     },
     {
       "section": "A. Requirements",
@@ -80,13 +80,13 @@
       "section": "A. Requirements",
       "check": "README numbers trace to evals/",
       "status": "PASS",
-      "detail": "215/215 numbers found in evals/ or models/meta.json; not found (review by hand: derived or stale): []"
+      "detail": "120/120 numbers found in evals/ or models/meta.json; not found (review by hand: derived or stale): []"
     },
     {
       "section": "A. Requirements",
       "check": "Work is committed (a fresh clone reproduces it)",
       "status": "PASS",
-      "detail": "2 commits"
+      "detail": "4 commits"
     },
     {
       "section": "B. Model behavior",
@@ -164,7 +164,7 @@
       "section": "B. Model behavior",
       "check": "Speech output: every sentence of the reply is spoken (offline)",
       "status": "PASS",
-      "detail": "2 sentences, 4.4 s of audio, first ready 1060 ms after the reply started; spoken text equals written text: True"
+      "detail": "2 sentences, 4.4 s of audio, first ready 1248 ms after the reply started; spoken text equals written text: True"
     },
     {
       "section": "B. Model behavior",
@@ -176,7 +176,7 @@
       "section": "B. Model behavior",
       "check": "Warm state latency (voice, typed)",
       "status": "INFO",
-      "detail": "voice p50 64 / p95 126 ms; typed p50 12 / p95 15 ms (back to back; see 06_idle_latency for gaps)"
+      "detail": "voice p50 65 / p95 123 ms; typed p50 12 / p95 16 ms (back to back; see 06_idle_latency for gaps)"
     },
     {
       "section": "B. Model behavior",

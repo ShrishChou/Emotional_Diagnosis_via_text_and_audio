@@ -1,6 +1,6 @@
 # Training harder on the failures
 
-Variants of the deployed fused model, 3 seeds each. Failures were found on train (out-of-fold); every choice was made on dev. From `evaluation/10_train_on_failures.py`.
+Variants of the deployed fused model, 3 seeds each. Failures were found on train (out-of-fold); every choice was made on dev. From `evaluation/09_train_on_failures.py`.
 
 | Variant | Dev weighted F1 | Test weighted F1 | Test macro F1 | Test accuracy |
 | --- | ---: | ---: | ---: | ---: |

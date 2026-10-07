@@ -22,7 +22,7 @@ Written by `training/04_train_classifiers.py` (predictions) and
 
 ## struggles/: where the deployed model fails
 
-Written by `evaluation/03_analyze_errors.py` (and `10_train_on_failures.py` for the train examples).
+Written by `evaluation/03_analyze_errors.py` (and `09_train_on_failures.py` for the train examples).
 
 | File | What it is |
 | --- | --- |
@@ -39,16 +39,14 @@ Written by `evaluation/03_analyze_errors.py` (and `10_train_on_failures.py` for 
 | --- | --- | --- |
 | `asr_eval.json` | `evaluation/02_asr_transcripts.py` | Word error rate, and the deployed models' scores on gold vs Whisper transcripts |
 | `asr_transcripts_test.csv` | same | Every test transcript, gold and Whisper |
-| [asr_matched.md](asr/asr_matched.md) | `evaluation/09_asr_matched_training.py` | Training on Whisper transcripts instead of gold |
+| [asr_matched.md](asr/asr_matched.md) | `evaluation/08_asr_matched_training.py` | Training on Whisper transcripts instead of gold |
 
 ## replies/: the reply model
 
 | File | Script | What it is |
 | --- | --- | --- |
-| [reply_compliance.md](replies/reply_compliance.md) | `evaluation/07_compare_reply_models.py` | Reply rules (length, emotion words, latency) across prompts and LLM sizes |
+| [reply_compliance.md](replies/reply_compliance.md) | `evaluation/07_compare_reply_models.py` | Reply rules (length, emotion words) and speed across prompts and LLM sizes. The inputs are sitcom lines, so this is not a measure of reply quality |
 | `reply_eval/<config>.csv` | same | Every reply behind that table |
-| [responses.md](replies/responses.md), `blind_pairs.json` | same | 20 replies with vs without the emotion state |
-| `blind_review.json` | `evaluation/08_blind_reply_review.py` | The blind preference rating, once someone has done it |
 
 ## system/: the running system
 
@@ -57,7 +55,7 @@ Written by `evaluation/03_analyze_errors.py` (and `10_train_on_failures.py` for 
 | `params.json` | `evaluation/04_count_parameters.py` | Parameters of every model on the inference path, vs the 6B limit |
 | `latency.json` | `evaluation/05_benchmark_latency.py` | Per-stage latency (p50 / p95) and memory, replies spoken |
 | [idle_latency.md](system/idle_latency.md) | `evaluation/06_idle_latency.py` | Latency after idle gaps, with and without a warm-up ping |
-| [system_check.md](system/system_check.md) | `evaluation/11_system_check.py` | Requirements and live-system checks |
+| [system_check.md](system/system_check.md) | `evaluation/10_system_check.py` | Requirements and live-system checks |
 | `hardware.json` | `training/01_check_environment.py` | The machine and library versions |
 | `demo_trace.txt` | `python demo.py --meld test dia113_utt10` | One utterance through the pipeline |
 | `missing_clips.txt` | `training/02_prepare_meld.py` | MELD rows without audio |
@@ -66,12 +64,12 @@ Written by `evaluation/03_analyze_errors.py` (and `10_train_on_failures.py` for 
 
 | File | Script | What it is |
 | --- | --- | --- |
-| [train_on_failures.md](experiments/train_on_failures.md) | `evaluation/10_train_on_failures.py` | Up-weighting failures, focal loss, neutral offset, label-noise probe |
+| [train_on_failures.md](experiments/train_on_failures.md) | `evaluation/09_train_on_failures.py` | Up-weighting failures, focal loss, neutral offset, label-noise probe |
 | `table_v1_ctx_pool_all_tokens.md` | an earlier version of the training script | The first context model, which pooled every token (kept for transparency; see NOTES.md) |
 
 ## logs/
 
 Console output of the longer runs, kept as evidence. Logs from before the reorganization
-(`train_log.txt`, `pairs_log.txt`, `responses_log.txt`, `reply_compliance_log.txt`,
+(`train_log.txt`, `reply_compliance_log.txt`,
 `bench_log.txt`, `extract_log.txt`) name the scripts as they were called then; NOTES.md maps
 old names to new. `face_server_log.txt` is written by a running app and is not committed.

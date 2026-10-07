@@ -1,6 +1,6 @@
 # Training on Whisper transcripts
 
-The fused head trained on gold, Whisper, or both transcripts of MELD train; mean ± std over 3 seeds. From `evaluation/09_asr_matched_training.py`.
+The fused head trained on gold, Whisper, or both transcripts of MELD train; mean ± std over 3 seeds. From `evaluation/08_asr_matched_training.py`.
 
 | Fused head trained on | Dev weighted F1 (selection set) | Test weighted F1, gold transcripts | Test weighted F1, Whisper transcripts | Test macro F1, Whisper |
 | --- | ---: | ---: | ---: | ---: |

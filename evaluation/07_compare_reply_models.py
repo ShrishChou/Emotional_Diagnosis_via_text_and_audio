@@ -1,6 +1,11 @@
-"""Reply compliance across LLMs and prompt styles, plus with/without-emotion pairs.
+"""Reply rules and speed across LLMs and prompt styles
+-> evals/replies/reply_compliance.{json,md}, evals/replies/reply_eval/<config>.csv
 
-Part 1 -> evals/replies/reply_compliance.{json,md}, evals/replies/reply_eval/<config>.csv
+What this measures, and what it does not: the inputs are MELD lines, spoken by sitcom
+characters to each other, not to the character. So this checks that replies follow the
+rules (length, no emotion words) and how fast they come, not whether they are good replies
+in a real conversation; that needs real people talking to the character.
+
   50 MELD test clips (stratified by gold class, gold transcripts). Each configuration
   (LLM x reply style, see src/responder.py) writes one emotion-conditioned reply per
   clip, and each reply is checked automatically (src/reply_checks.py):
@@ -15,11 +20,6 @@ Part 1 -> evals/replies/reply_compliance.{json,md}, evals/replies/reply_eval/<co
     within_2_sentences >= 95%, ends_cleanly >= 90%, emotion_word <= 5%,
     announces_feeling <= 10%, first-token p95 < 1000 ms.
   Decision rule: the smallest model that meets the bar.
-
-Part 2 -> evals/replies/responses.md, evals/replies/blind_pairs.json
-  For the configured model and style (config.py), the first 20 of those clips get a
-  reply with and without the emotion state (same seed). evaluation/08_blind_reply_review.py
-  shows them in random order for a blind pairwise preference check.
 """
 import os
 
@@ -51,7 +51,6 @@ from src.reply_checks import announces_feeling, count_sentences, ends_cleanly, h
 from src.responder import Responder
 
 N_CLIPS = 50
-N_PAIRS = 20
 N_WARMUP = 2
 
 CONFIGS = [  # (name, model, style), smallest model first
@@ -147,40 +146,14 @@ def write_compliance(results: dict) -> None:
               f"device {CFG.device}. Bar (fixed before running): {bar}. "
               "In the behavior style the sentence limit and the emotion-word list are enforced "
               "in decoding, so those two columns are compliant by construction there; "
-              "'announces feeling' is not enforced."]
+              "'announces feeling' is not enforced. The inputs are sitcom lines addressed to other "
+              "characters, so this measures rule-following and speed, not reply quality."]
     CFG.out("replies", "reply_compliance.md").write_text("\n".join(lines) + "\n")
-
-
-def write_pairs(clips, states, model: str, style: str) -> None:
-    responder = Responder(model)
-    pairs, lines = [], [
-        "# Replies with vs without the emotion state", "",
-        f"{N_PAIRS} MELD test clips, gold transcripts, model {model}, style `{style}`. Both "
-        "replies use the same seed; only the emotion part of the prompt differs. "
-        "Blind preference check: evaluation/08_blind_reply_review.py -> evals/replies/blind_review.json.", "",
-        "| Clip | Transcript | Gold | Predicted (conf.) | Reply with emotion | Reply without emotion |",
-        "| --- | --- | --- | --- | --- | --- |"]
-    for i, row in enumerate(clips.head(N_PAIRS).itertuples()):
-        st = states[row.clip]
-        with_emo = generate(responder, st, row.context, True, i, style)[0]
-        without = generate(responder, st, row.context, False, i, style)[0]
-        flag = " (audio changed)" if st["audio_changed_prediction"] else ""
-        lines.append(f"| {row.clip} | {cell(row.text)} | {row.emotion} | {st['emotion']} "
-                     f"({st['confidence']:.2f}){flag} | {cell(with_emo)} | {cell(without)} |")
-        pairs.append({"clip": row.clip, "wav_path": row.wav_path, "context": row.context,
-                      "transcript": row.text, "gold": row.emotion, "predicted": st["emotion"],
-                      "with_emotion": with_emo, "without_emotion": without})
-    del responder
-    free_gpu()
-    CFG.out("replies", "responses.md").write_text("\n".join(lines) + "\n")
-    write_json(CFG.out("replies", "blind_pairs.json"), {"model": model, "style": style, "pairs": pairs})
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--configs", nargs="*", help="subset of config names (default: all)")
-    ap.add_argument("--pairs-only", action="store_true", help="skip part 1")
-    ap.add_argument("--no-pairs", action="store_true", help="skip part 2")
     args = ap.parse_args()
 
     df = pd.read_csv(CFG.manifest_dir / "test.csv", keep_default_na=False)
@@ -194,25 +167,21 @@ def main():
     del pipe
     free_gpu()
 
-    if not args.pairs_only:
-        params = json.loads(CFG.out("system", "params.json").read_text())
-        base_params = params["total"] - params["components"]["reply_llm"]["params"]
-        path = CFG.out("replies", "reply_compliance.json")
-        results = json.loads(path.read_text())["configs"] if path.exists() else {}
-        for name, model, style in CONFIGS:
-            if args.configs and name not in args.configs:
-                continue
-            results[name] = run_config(name, model, style, clips, states, base_params)
-        results = {c[0]: results[c[0]] for c in CONFIGS if c[0] in results}
-        passing = [k for k in results if results[k]["meets_bar"] and results[k]["style"] == "behavior"]
-        write_json(path, {"n_clips": N_CLIPS, "bar": {k: list(v) for k, v in BAR.items()},
-                          "decision_rule": "smallest model that meets the bar",
-                          "smallest_passing": passing[0] if passing else None, "configs": results})
-        write_compliance(results)
-        print(CFG.out("replies", "reply_compliance.md").read_text())
-
-    if not args.no_pairs:
-        write_pairs(clips, states, CFG.llm_model, CFG.reply_style)
+    params = json.loads(CFG.out("system", "params.json").read_text())
+    base_params = params["total"] - params["components"]["reply_llm"]["params"]
+    path = CFG.out("replies", "reply_compliance.json")
+    results = json.loads(path.read_text())["configs"] if path.exists() else {}
+    for name, model, style in CONFIGS:
+        if args.configs and name not in args.configs:
+            continue
+        results[name] = run_config(name, model, style, clips, states, base_params)
+    results = {c[0]: results[c[0]] for c in CONFIGS if c[0] in results}
+    passing = [k for k in results if results[k]["meets_bar"] and results[k]["style"] == "behavior"]
+    write_json(path, {"n_clips": N_CLIPS, "bar": {k: list(v) for k, v in BAR.items()},
+                      "decision_rule": "smallest model that meets the bar",
+                      "smallest_passing": passing[0] if passing else None, "configs": results})
+    write_compliance(results)
+    print(CFG.out("replies", "reply_compliance.md").read_text())
 
 
 if __name__ == "__main__":

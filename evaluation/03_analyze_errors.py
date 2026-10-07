@@ -13,7 +13,7 @@ Writes
   charts/accuracy_by_slice.png    accuracy by utterance length, clip length, speaker, Whisper WER
   charts/whisper_by_class.png     recall per emotion, gold vs Whisper transcripts
   charts/audio_effect.png         errors audio fixed vs answers it broke, per emotion
-  charts/label_noise.png          train utterances no model gets right (if 10_train_on_failures ran)
+  charts/label_noise.png          train utterances no model gets right (if 09_train_on_failures ran)
 """
 import os
 

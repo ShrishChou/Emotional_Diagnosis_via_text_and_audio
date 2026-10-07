@@ -1,6 +1,6 @@
 # Train utterances the model gets wrong in every fold and seed
 
-2,932 of 9,988 train utterances (29%), from `evaluation/10_train_on_failures.py`. A random 20 below. TODO(Shrish): listen to some and judge how many labels are defensible; that bounds how much training on failures can help.
+2,932 of 9,988 train utterances (29%), from `evaluation/09_train_on_failures.py`. A random 20 below. TODO(Shrish): listen to some and judge how many labels are defensible; that bounds how much training on failures can help.
 
 | Clip | Speaker | Transcript | Label |
 | --- | --- | --- | --- |

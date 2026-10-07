@@ -103,7 +103,7 @@ def main():
     sample = rows[always_wrong].sample(n=20, random_state=0)
     L = ["# Train utterances the model gets wrong in every fold and seed", "",
          f"{always_wrong.sum():,d} of {len(y):,d} train utterances ({always_wrong.mean():.0%}), from "
-         "`evaluation/10_train_on_failures.py`. A random 20 below. TODO(Shrish): listen to some and judge how "
+         "`evaluation/09_train_on_failures.py`. A random 20 below. TODO(Shrish): listen to some and judge how "
          "many labels are defensible; that bounds how much training on failures can help.", "",
          "| Clip | Speaker | Transcript | Label |", "| --- | --- | --- | --- |"]
     L += [f"| {clip_id(r.dialogue_id, r.utterance_id)} | {r.speaker} | {r.text.replace('|', '/')} | {r.emotion} |"
@@ -115,7 +115,7 @@ def main():
                 "neutral_offset_dev_curve": dict(zip(map(str, grid), dev_curve))})
     T = ["# Training harder on the failures", "",
          "Variants of the deployed fused model, 3 seeds each. Failures were found on train (out-of-fold); "
-         "every choice was made on dev. From `evaluation/10_train_on_failures.py`.", "",
+         "every choice was made on dev. From `evaluation/09_train_on_failures.py`.", "",
          "| Variant | Dev weighted F1 | Test weighted F1 | Test macro F1 | Test accuracy |",
          "| --- | ---: | ---: | ---: | ---: |"]
     for name, r in results.items():

@@ -6,7 +6,7 @@ exactly like the gold ones (context = the previous two *Whisper* lines, speaker 
 from MELD since there is no diarization), and scores the deployed heads on test.
 
   python evaluation/02_asr_transcripts.py                        # test only (~6 min)
-  python evaluation/02_asr_transcripts.py --splits train dev test  # also what 09 trains on (~30 min)
+  python evaluation/02_asr_transcripts.py --splits train dev test  # also what 08 trains on (~30 min)
 
 Transcripts and features are cached, so reruns are fast:
   evals/asr/asr_transcripts_test.csv, cache/asr_{train,dev}.csv, cache/{split}_<text feature>_asr.npy

@@ -10,9 +10,9 @@ entries keep the names used at the time:
 | --- | --- |
 | `scripts/00_check_env.py`, `01_prepare_meld.py`, `02_extract_features.py`, `03_train_eval.py` | `training/01_check_environment.py`, `02_prepare_meld.py`, `03_extract_features.py`, `04_train_classifiers.py` (+ `evaluation/01_compare_classifiers.py`) |
 | `scripts/04_count_params.py`, `05_bench_latency.py`, `12_idle_latency.py` | `evaluation/04_count_parameters.py`, `05_benchmark_latency.py`, `06_idle_latency.py` |
-| `scripts/06_response_samples.py`, `08_blind_review.py` | `evaluation/07_compare_reply_models.py`, `08_blind_reply_review.py` |
-| `scripts/07_asr_eval.py`, `11_asr_matched_training.py` | `evaluation/02_asr_transcripts.py`, `09_asr_matched_training.py` |
-| `scripts/09_error_analysis.py`, `10_improvement_experiments.py`, `13_system_check.py` | `evaluation/03_analyze_errors.py`, `10_train_on_failures.py`, `11_system_check.py` |
+| `scripts/06_response_samples.py`, `08_blind_review.py` | `evaluation/07_compare_reply_models.py`; the blind review was removed (last section) |
+| `scripts/07_asr_eval.py`, `11_asr_matched_training.py` | `evaluation/02_asr_transcripts.py`, `08_asr_matched_training.py` |
+| `scripts/09_error_analysis.py`, `10_improvement_experiments.py`, `13_system_check.py` | `evaluation/03_analyze_errors.py`, `09_train_on_failures.py`, `10_system_check.py` |
 | `face_server.py`, `face/` | `app/server.py`, `app/web/` |
 | `checkpoints/text_head.pt`, `fused_head.pt` | `models/text_ctx.pt`, `models/fused.pt` (+ the other heads; `models/meta.json` names the deployed two) |
 | `results/` | `evals/` (by topic: classifiers, struggles, asr, replies, system, experiments, logs) |
@@ -282,3 +282,17 @@ entries keep the names used at the time:
   streaming-sentiment and content-prediction ideas under "With more time". The license TODOs
   were resolved: WavLM is released in microsoft/unilm under MIT (checked the repository's
   LICENSE); espeak-ng is GPL-3.0, stated as such.
+
+## Removed: the blind reply review
+
+- The review played a MELD clip and asked a person to pick the better of two replies (with and
+  without the emotion state). But MELD lines are spoken by sitcom characters to each other,
+  not to the character, so neither reply answers a real conversation and the preference
+  would not mean much. Removed the script, the paired replies (`responses.md`,
+  `blind_pairs.json`) and their logs; the evaluation scripts after it were renumbered
+  (08 Whisper-matched training, 09 train on failures, 10 system check).
+- Kept the reply-model comparison, which measures rule-following and speed, and stated in
+  the script and its report that its inputs are sitcom lines and it says nothing about
+  reply quality. The README's future work now proposes evaluating with real people instead,
+  together with the data changes (natural multi-corpus speech, valence/arousal targets, soft
+  labels, microphone-domain adaptation) that address why the model is weak on MELD.
